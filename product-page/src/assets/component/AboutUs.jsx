@@ -23,6 +23,7 @@ export default function AboutUs() {
           gap: '50px',
           marginBottom: '40px',
           flexDirection: { xs: 'column', sm: 'row' },
+          padding: '20px',
         }}
       >
         <div>

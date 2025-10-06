@@ -12,6 +12,7 @@ import Products from './assets/component/Products';
 import AboutUs from './assets/component/AboutUs';
 import Footer from './assets/component/Footer';
 import Header from './assets/component/Header';
+import NotFound from './assets/component/NotFound';
 
 function App() {
   return (
@@ -23,7 +24,7 @@ function App() {
           <Route path="/" element={<Products />} />
           <Route path="products" element={<Products />} />
           <Route path="aboutUs" element={<AboutUs />} />
-          <Route path="*" element={<div>Page not found</div>} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
         <Footer />
       </div>
