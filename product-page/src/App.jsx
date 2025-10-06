@@ -1,34 +1,33 @@
-// import { useState } from 'react';
+import { BrowserRouter } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
+import ReactDOM from 'react-dom/client';
+
 import '@fontsource/roboto/300.css';
 import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
 import './App.css';
 import Navbar from './assets/component/Navbar';
-import Header from './assets/component/Header';
-import Cards from './assets/component/Cards';
-import BasicCard from './assets/component/BasicCard';
+import Products from './assets/component/Products';
+import AboutUs from './assets/component/AboutUs';
 import Footer from './assets/component/Footer';
+import Header from './assets/component/Header';
 
 function App() {
   return (
-    <>
-      <Navbar />
-      <Header />
-      <div
-        style={{
-          fontWeight: 'bold',
-          fontSize: 20,
-          textAlign: 'center',
-          marginTop: 50,
-          marginBottom: 20,
-        }}
-      >
-        Our Collection
+    <BrowserRouter>
+      <div>
+        <Navbar />
+        {/* <Header /> */}
+        <Routes>
+          <Route path="/" element={<Products />} />
+          <Route path="products" element={<Products />} />
+          <Route path="aboutUs" element={<AboutUs />} />
+          <Route path="*" element={<div>Page not found</div>} />
+        </Routes>
+        <Footer />
       </div>
-      <Cards />
-      <Footer />
-    </>
+    </BrowserRouter>
   );
 }
 

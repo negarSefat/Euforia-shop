@@ -182,7 +182,7 @@ export default function ImgMediaCard({
             bgcolor: '#353753',
             fontSize: '10px',
             minWidth: '60%',
-            padding: { xs: '5px 4px', sm: '5px 10px', md: '6px 8px' },
+            padding: { xs: '5px 4px', sm: '5px 10px', md: '5px 8px' },
           }}
           startIcon={
             <ShoppingCartIcon sx={{ width: { sm: '14px', xs: '10px' } }} />
