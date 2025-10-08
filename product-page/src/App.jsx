@@ -13,21 +13,19 @@ import AboutUs from './assets/component/AboutUs';
 import Footer from './assets/component/Footer';
 import Header from './assets/component/Header';
 import NotFound from './assets/component/NotFound';
-
+import Layout from './assets/component/Layout';
 function App() {
+  // const navigate = useNavigate();
   return (
     <BrowserRouter>
-      <div>
-        <Navbar />
-        {/* <Header /> */}
+      <Layout>
         <Routes>
           <Route path="/" element={<Products />} />
           <Route path="products" element={<Products />} />
           <Route path="aboutUs" element={<AboutUs />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
-        <Footer />
-      </div>
+      </Layout>
     </BrowserRouter>
   );
 }

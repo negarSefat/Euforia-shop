@@ -13,7 +13,7 @@ import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
 import CheckroomIcon from '@mui/icons-material/Checkroom';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
 const pages = [
   { label: 'Home', path: '/' },
@@ -50,9 +50,7 @@ function ResponsiveAppBar() {
           <Typography
             variant="h6"
             noWrap
-            component={Link}
-            // href="#app-bar-with-responsive-menu"
-            to="/"
+            component="span"
             sx={{
               mr: 2,
               display: { xs: 'none', md: 'flex' },
@@ -97,7 +95,7 @@ function ResponsiveAppBar() {
                 <MenuItem
                   key={page.label}
                   onClick={handleCloseNavMenu}
-                  component={Link}
+                  component={NavLink}
                   to={page.path}
                 >
                   <Typography sx={{ textAlign: 'center', fontSize: 14 }}>
@@ -111,7 +109,7 @@ function ResponsiveAppBar() {
           <Typography
             variant="h5"
             noWrap
-            component={Link}
+            component="span"
             to="/"
             sx={{
               mr: 2,
@@ -130,7 +128,7 @@ function ResponsiveAppBar() {
             {pages.map((page) => (
               <Button
                 key={page.label}
-                component={Link}
+                component={NavLink}
                 to={page.path}
                 onClick={handleCloseNavMenu}
                 sx={{

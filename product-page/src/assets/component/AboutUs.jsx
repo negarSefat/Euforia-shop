@@ -6,8 +6,8 @@ export default function AboutUs() {
       <p
         style={{
           textAlign: 'center',
-          marginTop: '30px',
-          marginBottom: '40px',
+          marginTop: '40px',
+          marginBottom: '30px',
           fontFamily: 'poppins',
           fontSize: '24px',
         }}
@@ -20,10 +20,10 @@ export default function AboutUs() {
           display: 'flex',
           justifyContent: 'center',
           alignItems: 'center',
-          gap: '50px',
+          gap: '70px',
           marginBottom: '40px',
           flexDirection: { xs: 'column', sm: 'row' },
-          padding: '20px',
+          padding: '10px',
         }}
       >
         <div>
@@ -37,8 +37,15 @@ export default function AboutUs() {
           component="div"
           sx={{ width: { xs: '60%', sm: '40%' }, fontFamily: 'poppins' }}
         >
-          <span>Our Vintage Journey</span>
-          <p style={{ fontSize: '12px', color: '#211e5bff' }}>
+          <span style={{ color: '#bd7e30ff', fontWeight: 'bold' }}>
+            Our Vintage Journey
+          </span>
+          <p
+            style={{
+              fontSize: '12px',
+              color: '#211e5bff',
+            }}
+          >
             Germiston Vintage Clothing, founded by Nomalanga Ndebele, celebrates
             the beauty of vintage fashion. Our journey started from a personal
             passion, evolving into a thriving business that supports local
