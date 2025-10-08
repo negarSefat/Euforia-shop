@@ -21,7 +21,12 @@ const pages = [
   { label: 'Accessories', path: '/accessories' }, // مسیر جدید برای Accessories
   { label: 'About us', path: '/aboutUs' },
 ];
-const settings = ['Profile', 'Account', 'Cart', 'Log out'];
+const settings = [
+  { label: 'Profile', path: '/' },
+  { label: 'Account', path: '/' },
+  { label: 'Cart', path: '/cart' },
+  { label: 'Log out', path: '/' },
+];
 
 function ResponsiveAppBar() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -167,8 +172,12 @@ function ResponsiveAppBar() {
             >
               {settings.map((setting) => (
                 <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <Typography sx={{ textAlign: 'center', fontSize: 12 }}>
-                    {setting}
+                  <Typography
+                    component={NavLink}
+                    to={setting.path}
+                    sx={{ textAlign: 'center', fontSize: 12 }}
+                  >
+                    {setting.label}
                   </Typography>
                 </MenuItem>
               ))}

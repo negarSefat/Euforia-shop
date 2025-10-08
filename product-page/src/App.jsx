@@ -1,4 +1,4 @@
-import { BrowserRouter } from 'react-router-dom';
+import { BrowserRouter, Router } from 'react-router-dom';
 import { Routes, Route } from 'react-router-dom';
 import ReactDOM from 'react-dom/client';
 
@@ -14,8 +14,12 @@ import Footer from './assets/component/Footer';
 import Header from './assets/component/Header';
 import NotFound from './assets/component/NotFound';
 import Layout from './assets/component/Layout';
+import Cart from './assets/component/Cart';
+// import { createContext } from 'react';
+
+// const cartContext = createContext(null);
+
 function App() {
-  // const navigate = useNavigate();
   return (
     <BrowserRouter>
       <Layout>
@@ -23,11 +27,13 @@ function App() {
           <Route path="/" element={<Products />} />
           <Route path="products" element={<Products />} />
           <Route path="aboutUs" element={<AboutUs />} />
+          <Route path="cart" element={<Cart />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </Layout>
     </BrowserRouter>
   );
+  // <cardContex value={}></cardContex>
 }
 
 export default App;
