@@ -1,0 +1,50 @@
+body {
+  margin: 0;
+  padding: 0;
+  outline: none;
+  border: none;
+  box-sizing: border-box;
+}
+
+.mainPic {
+  width: 100%;
+  object-fit: fill;
+  opacity: 20%;
+  height: 250px;
+}
+
+.error-display {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 12px;
+  font-family: 'poppins';
+}
+.footer {
+  display: flex;
+  height: auto;
+  width: 100%;
+  background-color: #353753;
+  color: 'white';
+  font-family: poppins;
+  font-size: 10px;
+}
+.open {
+  margin-left: 310px;
+}
+@media (max-width: 600px) {
+  .footer {
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+    font-size: 14px;
+  }
+  .open {
+    margin-left: 10px;
+  }
+}
+
+.flexCol {
+  display: flex;
+  flex-direction: column;
+}
