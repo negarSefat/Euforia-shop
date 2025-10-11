@@ -8,7 +8,7 @@ export default function AboutUs() {
           textAlign: 'center',
           marginTop: '40px',
           marginBottom: '30px',
-          fontFamily: 'poppins',
+          fontFamily: 'causten',
           fontSize: '24px',
         }}
       >
@@ -28,22 +28,22 @@ export default function AboutUs() {
       >
         <div>
           <img
-            src="/store.webp"
+            src="/store.png"
             alt="store image"
-            style={{ width: '350px', borderRadius: '70px ' }}
+            style={{ width: '300px', borderRadius: '15px ' }}
           />
         </div>
         <Typography
           component="div"
-          sx={{ width: { xs: '60%', sm: '40%' }, fontFamily: 'poppins' }}
+          sx={{ width: { xs: '60%', sm: '40%' }, fontFamily: 'causten' }}
         >
-          <span style={{ color: '#bd7e30ff', fontWeight: 'bold' }}>
+          <span style={{ color: '#4d77c9ff', fontWeight: 'bold' }}>
             Our Vintage Journey
           </span>
           <p
             style={{
               fontSize: '12px',
-              color: '#211e5bff',
+              color: '#7d7b97ff',
             }}
           >
             Germiston Vintage Clothing, founded by Nomalanga Ndebele, celebrates

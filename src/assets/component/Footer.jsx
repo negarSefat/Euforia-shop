@@ -12,6 +12,7 @@ export default function Footer() {
           flexDirection: 'column',
           paddingBottom: '30px',
           paddingTop: '10px',
+          marginInline: 'auto',
           // backgroundColor: '#3C4242',
         }}
       >
@@ -39,10 +40,10 @@ export default function Footer() {
               }}
             >
               <span>Clothing</span>
-              <span>Link 1</span>
-              <span>Link 2</span>
-              <span>Link 3</span>
-              <span>Link 4</span>
+              <span>euphoria Blog</span>
+              <span>euphoriastan</span>
+              <span>Media</span>
+              <span>Collaboration</span>
             </div>
             <div
               className="flexCol"

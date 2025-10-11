@@ -7,13 +7,10 @@ import Typography from '@mui/material/Typography';
 import Menu from '@mui/material/Menu';
 import MenuIcon from '@mui/icons-material/Menu';
 import Container from '@mui/material/Container';
-import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
-import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
-// import CheckroomIcon from '@mui/icons-material/Checkroom';
-import { Link, NavLink } from 'react-router-dom';
+import { Link, NavLink, useNavigate } from 'react-router-dom';
 import SearchIcon from '@mui/icons-material/Search';
 import { styled } from '@mui/material/styles';
 import InputBase from '@mui/material/InputBase';
@@ -63,7 +60,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
     [theme.breakpoints.up('sm')]: {
       width: '18ch',
       '&:focus': {
-        width: '22ch',
+        width: '24ch',
       },
     },
   },
@@ -80,6 +77,7 @@ function ResponsiveAppBar() {
     setAnchorElNav(null);
   };
 
+  const navigate = useNavigate();
   return (
     <AppBar
       position="relative"
@@ -157,7 +155,6 @@ function ResponsiveAppBar() {
               ))}
             </Menu>
           </Box>
-          {/* <img src="/public/Logo.png" alt="" /> */}
 
           {/* <CheckroomIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
           <Typography
@@ -208,13 +205,13 @@ function ResponsiveAppBar() {
             sx={{
               display: 'flex',
               flexDirection: 'row-reverse',
-              // flexGrow: 0,
               justifyContent: 'center',
               alignItems: 'center',
               gap: '10px',
             }}
           >
             <ShoppingCartIcon
+              onClick={() => navigate('/cart')}
               sx={{
                 backgroundColor: '#F6F6F6',
                 color: '#807D7E',
@@ -237,39 +234,7 @@ function ResponsiveAppBar() {
                 display: { xs: 'none', md: 'block' },
               }}
             ></PersonOutlineIcon>
-            {/* <Tooltip title="Open settings">
-              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
-              </IconButton>
-            </Tooltip>
-            <Menu
-              sx={{ mt: '45px' }}
-              id="menu-appbar"
-              anchorEl={anchorElUser}
-              anchorOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
-              }}
-              open={Boolean(anchorElUser)}
-              onClose={handleCloseUserMenu}
-            >
-              {settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <Typography
-                    component={NavLink}
-                    to={setting.path}
-                    sx={{ textAlign: 'center', fontSize: 12 }}
-                  >
-                    {setting.label}
-                  </Typography>
-                </MenuItem>
-              ))}
-            </Menu> */}
+
             <Search>
               <SearchIconWrapper>
                 <SearchIcon />

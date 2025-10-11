@@ -7,6 +7,7 @@ export default function Products() {
       {/* <Header /> */}
       <div
         style={{
+          fontFamily: 'causten',
           fontWeight: 'bold',
           fontSize: 20,
           textAlign: 'center',

@@ -19,7 +19,7 @@ export default function Cards() {
         const response = await axios.get('https://fakestoreapi.com/products');
         setCards(response.data);
       } catch (err) {
-        setError('Something went wrong!');
+        setError('Something went wrong');
         setErrorMes(err.message);
       } finally {
         setLoading(false);
@@ -68,7 +68,7 @@ export default function Cards() {
           alignItems="center"
           spacing={2}
           marginTop={7}
-          marginBottom={5}
+          marginBottom={15}
           sx={{ marginX: { xs: '32px', sm: '95px', md: '70px' } }}
         >
           {cards.map(
@@ -78,7 +78,7 @@ export default function Cards() {
                 style={{
                   marginBottom: '15px',
                 }}
-                size={{ xs: 6, sm: 4, md: 3 }}
+                size={{ xs: 6, sm: 6, md: 3 }}
               >
                 <BasicCard
                   title={title}

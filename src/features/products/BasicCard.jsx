@@ -155,7 +155,15 @@ export default function ImgMediaCard({
             <span>{rating.rate}</span>
             <span style={{ color: 'gray' }}>({rating.count})</span>
           </div>
-          <div>${price}</div>
+          <div
+            style={{
+              backgroundColor: '#e7e5e5ff',
+              padding: '4px',
+              borderRadius: '5px',
+            }}
+          >
+            ${price}
+          </div>
         </div>
       </CardActions>
       <div
@@ -204,15 +212,15 @@ export default function ImgMediaCard({
         <Button
           variant="contained"
           sx={{
-            bgcolor: '#a889d1ff',
-            fontSize: '10px',
+            fontSize: { xs: '8px', sm: '10px' },
             fontFamily: 'causten',
-
-            minWidth: '60%',
-            padding: { xs: '5px 4px', sm: '5px 10px', md: '5px 8px' },
+            padding: { xs: '2px 3px', sm: '5px 7px', md: '6px 10px' },
+            margin: { xs: 0, md: '7px' },
           }}
           startIcon={
-            <ShoppingCartIcon sx={{ width: { sm: '14px', xs: '10px' } }} />
+            <ShoppingCartIcon
+              sx={{ width: { xs: '10px', sm: '14px' }, marginLeft: '5px' }}
+            />
           }
         >
           Add to cart
