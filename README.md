@@ -1,6 +1,6 @@
 
 <div align="center">
-  <img width="600" height="350" alt="Screenshot 2025-09-30 034856" src="https://github.com/user-attachments/assets/3cda4efe-9d59-4c8d-8c54-1548d8606b5e" align="center" />
+  <img width="600" height="350" alt="Screenshot 2025-09-30 034856" src="" align="center" />
 </div>
 
 # 🛍 Product page
