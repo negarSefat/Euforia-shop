@@ -33,7 +33,7 @@ export default function Header() {
           simply adding a touch of vintage to your everyday wardrobe.
         </p>
       </div>
-      <div
+      {/* <div
         style={{
           fontWeight: 'bold',
           fontSize: 20,
@@ -43,7 +43,7 @@ export default function Header() {
         }}
       >
         Our Collection
-      </div>
+      </div> */}
     </>
   );
 }

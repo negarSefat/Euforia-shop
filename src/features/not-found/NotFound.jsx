@@ -10,22 +10,13 @@ export default function NotFound() {
         padding: '70px',
       }}
     >
-      <img style={{ width: '180px' }} src="error3.png" alt="error Icon" />
-      <div
-        style={{
-          display: 'flex',
-          alignItems: 'center',
-        }}
-      >
-        <ErrorOutlineIcon
-          sx={{
-            color: 'rgb(215, 31, 31)',
-            height: '30px',
-            width: '40px',
-          }}
-        />
-        <h1>Page Not found!</h1>
-      </div>
+      <img style={{ width: '300px' }} src="404.png" alt="error Icon" />
+
+      <h1>Page Not found</h1>
+      <p style={{ width: '40%', textAlign: 'center', color: '#807D7E' }}>
+        The page you are looking for might have been removed or temporarily
+        unavailable.
+      </p>
     </div>
   );
 }

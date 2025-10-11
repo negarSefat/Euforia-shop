@@ -1,3 +1,19 @@
+@font-face {
+  font-family: 'causten';
+  src: url('../public/font/Causten\ Medium.ttf') format(trueType);
+}
+
+@font-face {
+  font-family: 'sansc';
+  src: url(../public/font/Fontspring-DEMO-coresansc35.otf);
+}
+
+* {
+  border: none;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -18,15 +34,16 @@ body {
   justify-content: center;
   align-items: center;
   font-size: 12px;
-  font-family: 'poppins';
+  font-family: 'sansc';
 }
 .footer {
   display: flex;
   height: auto;
   width: 100%;
-  background-color: #353753;
+  background-color: #3c4242;
+
   color: 'white';
-  font-family: poppins;
+  font-family: causten;
   font-size: 10px;
 }
 .open {

@@ -6,7 +6,7 @@ import '@fontsource/roboto/300.css';
 import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
-import './App.css';
+// import './App.css';
 import Navbar from './assets/component/Navbar';
 import Products from './features/products/Products';
 import AboutUs from './features/about-us/AboutUs';

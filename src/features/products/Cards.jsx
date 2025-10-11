@@ -71,23 +71,26 @@ export default function Cards() {
           marginBottom={5}
           sx={{ marginX: { xs: '32px', sm: '95px', md: '70px' } }}
         >
-          {cards.map((cardObject) => (
-            <Grid
-              key={cardObject.id}
-              style={{
-                marginBottom: '15px',
-              }}
-              size={{ xs: 10, sm: 6, md: 3 }}
-            >
-              <BasicCard
-                title={cardObject.title}
-                description={cardObject.description}
-                image={cardObject.image}
-                price={cardObject.price}
-                rating={cardObject.rating}
-              />
-            </Grid>
-          ))}
+          {cards.map(
+            ({ id, title, description, image, price, rating, category }) => (
+              <Grid
+                key={id}
+                style={{
+                  marginBottom: '15px',
+                }}
+                size={{ xs: 6, sm: 4, md: 3 }}
+              >
+                <BasicCard
+                  title={title}
+                  description={description}
+                  image={image}
+                  price={price}
+                  rating={rating}
+                  category={category}
+                />
+              </Grid>
+            )
+          )}
         </Grid>
       }
     </div>
