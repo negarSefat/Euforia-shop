@@ -8,16 +8,12 @@ import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
 import Navbar from './assets/component/Navbar';
 import Products from './features/products/Products';
-import AboutUs from './features/about-us/AboutUs';
+import AboutUs from './features/about-us/About';
 import Footer from './assets/component/Footer';
 import Header from './assets/component/Header';
 import NotFound from './features/not-found/NotFound';
 import Layout from './assets/component/Layout';
 import Cart from './features/cart/Cart';
-
-// import { createContext } from 'react';
-
-// const cartContext = createContext(null);
 
 function App() {
   return (

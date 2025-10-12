@@ -39,9 +39,9 @@ body {
 .footer {
   display: flex;
   height: auto;
-  width: 100%;
+  /* width: 100%; */
+  max-width: 1280px;
   background-color: #3c4242;
-
   color: 'white';
   font-family: causten;
   font-size: 10px;

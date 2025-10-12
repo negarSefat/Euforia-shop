@@ -1,12 +1,12 @@
-import { useState } from 'react';
+// import React, { useState } from 'react';
 import Emptycart from './EmptyCart';
 
 export default function Cart() {
-  const [cartItem, setCartItem] = useState(null);
+  // const [cartItem, setCartItem] = useState(null);
+  // return <div>{!cartItem && <Emptycart /> && setCartItem(0)}</div>;
   return (
     <>
-      {cartItem.length === 0 && <Emptycart />}
-      <div>cart</div>
+      <Emptycart />
     </>
   );
 }

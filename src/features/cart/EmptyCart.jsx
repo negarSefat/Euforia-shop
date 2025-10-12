@@ -16,7 +16,7 @@ export default function Emptycart() {
         padding: '20px',
       }}
     >
-      <img style={{ width: '250px' }} src="emptyCart.png" alt="empty cart" />
+      <img style={{ width: '200px' }} src="empty.png" alt="empty cart" />
       <span>Your cart is empty</span>
       <span style={{ fontSize: '14px', color: '#565555ff' }}>
         Add something
@@ -28,7 +28,7 @@ export default function Emptycart() {
           padding: '12px',
           borderRadius: '10px',
           fontFamily: 'causten',
-          backgroundColor: '#8A33FD',
+          backgroundColor: '#1976d2',
           color: 'white',
         }}
       >

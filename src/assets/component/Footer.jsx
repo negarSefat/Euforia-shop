@@ -4,7 +4,7 @@ import XIcon from '@mui/icons-material/X';
 
 export default function Footer() {
   return (
-    <>
+    <footer>
       <div
         className="footer"
         style={{
@@ -13,7 +13,6 @@ export default function Footer() {
           paddingBottom: '30px',
           paddingTop: '10px',
           marginInline: 'auto',
-          // backgroundColor: '#3C4242',
         }}
       >
         <div>
@@ -142,6 +141,6 @@ export default function Footer() {
           </div>
         </div>
       </div>
-    </>
+    </footer>
   );
 }
