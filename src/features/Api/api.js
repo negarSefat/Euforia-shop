@@ -1,12 +1,13 @@
 import axios from 'axios';
 
 const api = axios.create({
-  baseURL: 'x',
-  timeout: 5000,
+  baseURL: 'https://fakestoreapi.com/',
   headers: { 'Content-Type': 'application / json' },
 });
 
-// api.interceptors.response.use();
-// const api = function (url) {
-//   axios.get(url).then((res) => setcard(res));
-// };
+api.interceptors.response.use(
+  (res) => res.data,
+  (err) => `${err} :Something went wrong`
+);
+
+export default api;

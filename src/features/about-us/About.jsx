@@ -2,12 +2,11 @@ import Typography from '@mui/material/Typography';
 
 export default function AboutUs() {
   return (
-    <>
+    <div style={{ maxWidth: '1280px', marginInline: 'auto' }}>
       <p
         style={{
           textAlign: 'center',
-          marginTop: '40px',
-          marginBottom: '30px',
+          marginTop: '30px',
           fontFamily: 'causten',
           fontSize: '24px',
         }}
@@ -53,6 +52,6 @@ export default function AboutUs() {
           </p>
         </Typography>
       </Typography>
-    </>
+    </div>
   );
 }

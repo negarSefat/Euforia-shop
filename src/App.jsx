@@ -14,22 +14,25 @@ import Header from './assets/component/Header';
 import NotFound from './features/not-found/NotFound';
 import Layout from './assets/component/Layout';
 import Cart from './features/cart/Cart';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
+const queryClient = new QueryClient();
 function App() {
   return (
     <BrowserRouter>
-      <Layout>
-        <Routes>
-          <Route path="/" element={<Products />} />
-          <Route path="products" element={<Products />} />
-          <Route path="aboutUs" element={<AboutUs />} />
-          <Route path="cart" element={<Cart />} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </Layout>
+      <QueryClientProvider client={queryClient}>
+        <Layout>
+          <Routes>
+            <Route path="/" element={<Products />} />
+            <Route path="products" element={<Products />} />
+            <Route path="aboutUs" element={<AboutUs />} />
+            <Route path="cart" element={<Cart />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </Layout>
+      </QueryClientProvider>
     </BrowserRouter>
   );
-  // <cardContex value={}></cardContex>
 }
 
 export default App;

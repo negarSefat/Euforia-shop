@@ -1,17 +1,18 @@
 @font-face {
   font-family: 'causten';
-  src: url('../public/font/Causten\ Medium.ttf') format(trueType);
+  src: url('/font/Causten\ Medium.ttf') format(trueType);
 }
 
 @font-face {
   font-family: 'sansc';
-  src: url(../public/font/Fontspring-DEMO-coresansc35.otf);
+  src: url(/font/Fontspring-DEMO-coresansc35.otf);
 }
 
 * {
   border: none;
   padding: 0;
   box-sizing: border-box;
+  overflow-x: hidden;
 }
 
 body {
@@ -65,3 +66,19 @@ body {
   display: flex;
   flex-direction: column;
 }
+/* index.css */
+/* html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+} */
+
+/* override خاص برای MUI Menu */
+/* .MuiPopover-root {
+  overflow: visible !important; 
+}
+
+.MuiMenu-paper {
+  max-width: 1280px !important; 
+} */

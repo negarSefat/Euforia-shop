@@ -38,6 +38,8 @@ export default function ImgMediaCard({
       sx={{
         maxWidth: 345,
         position: 'relative',
+        margin: '1px',
+        overflowX: 'visible',
       }}
     >
       <CardMedia
@@ -77,7 +79,7 @@ export default function ImgMediaCard({
             fontFamily: 'causten',
             fontSize: 11,
             padding: '5px',
-            backgroundColor: '#8A33FD',
+            backgroundColor: ,
             color: 'white',
           }}
         >
@@ -171,39 +173,45 @@ export default function ImgMediaCard({
           display: 'flex',
           justifyContent: 'space-between',
           alignItems: 'center',
+          padding: '0px 5px',
         }}
       >
         <div
           style={{
             display: 'flex',
             alignItems: 'center',
+            // justifyContent: 'center',
+            flexShrink: 0,
           }}
         >
           <Button
             onClick={increase}
             sx={{
-              padding: '10px',
-              margin: '4px',
+              padding: '10px 0',
               color: 'black',
               lineHeight: '0.5',
               minWidth: '25px',
               border: ' 1px solid rgba(26, 31, 104, 0.3)',
-              width: { xs: '5px' },
+              display: { xs: 'none', md: 'block' },
             }}
           >
             +
           </Button>
-          <span style={{ padding: '4px' }}>{number}</span>
+          <Typography
+            sx={{ display: { xs: 'none', md: 'block' }, padding: '5px' }}
+          >
+            {number}
+          </Typography>
           <Button
             onClick={decrease}
             sx={{
-              padding: '10px',
-              margin: '4px',
+              padding: '10px 0',
               color: 'black',
               lineHeight: '0.5',
               minWidth: '25px',
               border: ' 1px solid rgba(26, 31, 104, 0.3)',
               width: { xs: '5px' },
+              display: { xs: 'none', md: 'block' },
             }}
           >
             -
@@ -212,18 +220,18 @@ export default function ImgMediaCard({
         <Button
           variant="contained"
           sx={{
-            fontSize: { xs: '8px', sm: '10px' },
+            width: { xs: '100%', md: 'auto' },
+            fontSize: { xs: '9px', sm: '10px' },
             fontFamily: 'causten',
-            padding: { xs: '2px 3px', sm: '5px 7px', md: '6px 10px' },
-            margin: { xs: 0, md: '7px' },
+            // padding: { xs: '2px 3px', sm: '5px 7px', md: '6px 10px' },
+            padding: '5px 15px',
+            margin: '5px 2px',
           }}
           startIcon={
-            <ShoppingCartIcon
-              sx={{ width: { xs: '10px', sm: '14px' }, marginLeft: '5px' }}
-            />
+            <ShoppingCartIcon sx={{ width: { xs: '10px', sm: '14px' } }} />
           }
         >
-          Add to cart
+          <span>Add to cart</span>
         </Button>
       </div>
     </Card>
