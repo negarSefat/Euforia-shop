@@ -1,6 +1,6 @@
 
 <div align="center">
-  <img width="600" height="350" alt="Screenshot 2025-09-30 034856" src="" align="center" />
+  <img width="600" height="350" alt="Screenshot 2025-09-30 034856" src="https://github.com/user-attachments/assets/4292ffbb-4b4c-4b63-96b8-2d0a57033e41" align="center" />
 </div>
 
 # 🛍 Euphoria Shop
