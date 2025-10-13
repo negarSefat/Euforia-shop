@@ -3,7 +3,7 @@
   <img width="600" height="350" alt="Screenshot 2025-09-30 034856" src="" align="center" />
 </div>
 
-# 🛍 PEuphoria Shop
+# 🛍 Euphoria Shop
 
 It is a React project that fetches product data from [FakeStore API](https://fakestoreapi.com/)  
 and displays them with loading and error handling states.
