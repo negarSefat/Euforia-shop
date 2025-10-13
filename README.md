@@ -11,8 +11,9 @@ and displays them with loading and error handling states.
 ## ⚙️ Tech Stack
 - ⚛️ React
 - ✔️React-Router
-- 🎨 Material UI
+- 🔎React-Query (TanStack Query)
 - 🌐 Axios – For API requests
+- 🎨 Material UI
 - 📡 FakeStore API – Public API for testing and demo
 
 ## 🚀 Features
