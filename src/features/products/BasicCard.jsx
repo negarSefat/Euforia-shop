@@ -220,10 +220,9 @@ export default function ImgMediaCard({
         <Button
           variant="contained"
           sx={{
-            width: { xs: '100%', md: 'auto' },
+            width: { xs: '100%', md: '60%' },
             fontSize: { xs: '9px', sm: '10px' },
             fontFamily: 'causten',
-            // padding: { xs: '2px 3px', sm: '5px 7px', md: '6px 10px' },
             padding: '5px 15px',
             margin: '5px 2px',
           }}
