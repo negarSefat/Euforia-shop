@@ -3,13 +3,14 @@
   <img width="600" height="350" alt="Screenshot 2025-09-30 034856" src="" align="center" />
 </div>
 
-# 🛍 Product page
+# 🛍 Euphoria Shop
 
 It is a React project that fetches product data from [FakeStore API](https://fakestoreapi.com/)  
 and displays them with loading and error handling states.
 
 ## ⚙️ Tech Stack
-- ⚛️ React 
+- ⚛️ React
+- ✔️React-Router
 - 🎨 Material UI
 - 🌐 Axios – For API requests
 - 📡 FakeStore API – Public API for testing and demo
