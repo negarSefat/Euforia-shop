@@ -1,20 +1,23 @@
 import { BrowserRouter, Router } from 'react-router-dom';
 import { Routes, Route } from 'react-router-dom';
 import ReactDOM from 'react-dom/client';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { lazy } from 'react';
 
 import '@fontsource/roboto/300.css';
 import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
+
 import Navbar from './assets/component/Navbar';
-import Products from './features/products/Products';
-import AboutUs from './features/about-us/About';
-import Footer from './assets/component/Footer';
 import Header from './assets/component/Header';
-import NotFound from './features/not-found/NotFound';
+import Footer from './assets/component/Footer';
 import Layout from './assets/component/Layout';
-import Cart from './features/cart/Cart';
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+
+const Products = lazy(() => import('./features/products/Products'));
+const AboutUs = lazy(() => import('./features/about-us/About'));
+const NotFound = lazy(() => import('./features/not-found/NotFound'));
+const Cart = lazy(() => import('./features/cart/Cart'));
 
 const queryClient = new QueryClient();
 function App() {
