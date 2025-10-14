@@ -15,7 +15,8 @@ import Footer from './assets/component/Footer';
 import Layout from './assets/component/Layout';
 import router from './features/about-us/router/router';
 
-const Products = lazy(() => import('./features/products/Products'));
+// const Products = lazy(() => import('./features/products/Products'));
+import Products from './features/products/Products';
 const AboutUs = lazy(() => import('./features/about-us/About'));
 const NotFound = lazy(() => import('./features/not-found/NotFound'));
 const Cart = lazy(() => import('./features/cart/Cart'));
@@ -23,9 +24,21 @@ const Cart = lazy(() => import('./features/cart/Cart'));
 const queryClient = new QueryClient();
 function App() {
   return (
+    // <BrowserRouter>
     <QueryClientProvider client={queryClient}>
-      <RouterProvider router={router}></RouterProvider>
+      <RouterProvider router={router}>
+        {/* <Layout>
+          <Routes>
+            <Route path="/" element={<Products />} />
+            <Route path="products" element={<Products />} />
+            <Route path="aboutUs" element={<AboutUs />} />
+            <Route path="cart" element={<Cart />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </Layout> */}
+      </RouterProvider>
     </QueryClientProvider>
+    // </BrowserRouter>
   );
 }
 

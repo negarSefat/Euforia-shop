@@ -4,6 +4,7 @@ import Cart from '../../cart/Cart';
 import NotFound from '../../not-found/NotFound';
 import Layout from '../../../assets/component/Layout';
 import Products from '../../products/Products';
+import SingleProduct from '../../single-product/SingleProduct';
 
 const router = createBrowserRouter([
   {
@@ -17,7 +18,7 @@ const router = createBrowserRouter([
       { path: 'products', element: <Products /> },
       { path: 'aboutUs', element: <AboutUs /> },
       { path: 'cart', element: <Cart /> },
-      { path: '*', element: <NotFound /> },
+      { path: '*', element: <SingleProduct /> },
     ],
   },
 ]);

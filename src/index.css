@@ -65,19 +65,13 @@ body {
   display: flex;
   flex-direction: column;
 }
-/* index.css */
-/* html,
-body {
-  margin: 0;
-  padding: 0;
-  width: 100%;
-} */
-
-/* override خاص برای MUI Menu */
-/* .MuiPopover-root {
-  overflow: visible !important; 
+/* .css-1f9xtph-MuiTypography-root {
+  font-family: 'sansc' !important;
 }
-
-.MuiMenu-paper {
-  max-width: 1280px !important; 
+/* .css-bj4yyt-MuiTypography-root {
 } */
+
+.css-rizt0-MuiTypography-root {
+  font-family: 'sansc' !important;
+  font-size: 10px !important;
+}

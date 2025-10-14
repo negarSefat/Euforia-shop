@@ -71,20 +71,6 @@ export default function ImgMediaCard({
         }}
       />
       <CardContent sx={{ padding: '10px', fontFamily: 'causten' }}>
-        {/* <Typography
-          sx={{
-            position: 'absolute',
-            top: 0,
-            left: 0,
-            fontFamily: 'causten',
-            fontSize: 11,
-            padding: '5px',
-            backgroundColor: ,
-            color: 'white',
-          }}
-        >
-          {category}
-        </Typography> */}
         <Typography
           sx={{
             display: '-webkit-box',
