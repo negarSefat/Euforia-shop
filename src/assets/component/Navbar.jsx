@@ -9,8 +9,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
-import AdbIcon from '@mui/icons-material/Adb';
-import { Link, NavLink, useNavigate } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import SearchIcon from '@mui/icons-material/Search';
 import { styled } from '@mui/material/styles';
 import InputBase from '@mui/material/InputBase';
@@ -85,7 +84,6 @@ function ResponsiveAppBar() {
         bgcolor: '#ffff',
         fontFamily: 'causten',
         padding: '3px',
-        // overflowX: 'hidden',
       }}
     >
       <Container>

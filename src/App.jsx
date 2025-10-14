@@ -1,4 +1,4 @@
-import { BrowserRouter, Router } from 'react-router-dom';
+import { BrowserRouter, Router, RouterProvider } from 'react-router-dom';
 import { Routes, Route } from 'react-router-dom';
 import ReactDOM from 'react-dom/client';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
@@ -13,6 +13,7 @@ import Navbar from './assets/component/Navbar';
 import Header from './assets/component/Header';
 import Footer from './assets/component/Footer';
 import Layout from './assets/component/Layout';
+import router from './features/about-us/router/router';
 
 const Products = lazy(() => import('./features/products/Products'));
 const AboutUs = lazy(() => import('./features/about-us/About'));
@@ -22,19 +23,9 @@ const Cart = lazy(() => import('./features/cart/Cart'));
 const queryClient = new QueryClient();
 function App() {
   return (
-    <BrowserRouter>
-      <QueryClientProvider client={queryClient}>
-        <Layout>
-          <Routes>
-            <Route path="/" element={<Products />} />
-            <Route path="products" element={<Products />} />
-            <Route path="aboutUs" element={<AboutUs />} />
-            <Route path="cart" element={<Cart />} />
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-        </Layout>
-      </QueryClientProvider>
-    </BrowserRouter>
+    <QueryClientProvider client={queryClient}>
+      <RouterProvider router={router}></RouterProvider>
+    </QueryClientProvider>
   );
 }
 
