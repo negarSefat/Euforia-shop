@@ -11,22 +11,51 @@ import FormControl from '@mui/material/FormControl';
 import FormLabel from '@mui/material/FormLabel';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import { useParams } from 'react-router-dom';
+import { useQuery } from '@tanstack/react-query';
+import api from '../Api/api';
+import CircularSize from '../loading/Loading';
+import { Block } from '@mui/icons-material';
 
 export default function ActionAreaCard() {
   const { id } = useParams();
-  console.log('id', id);
+  // console.log('id', id);
+  async function queryFn() {
+    try {
+      return await api.get(`products/${id}`);
+    } catch (err) {
+      return err;
+    }
+  }
+
+  const { data, isLoading } = useQuery({
+    queryKey: [`single-product-${id}`],
+    queryFn,
+  });
+
+  if (isLoading) return <CircularSize />;
   return (
-    <Card sx={{ maxWidth: '1280px', padding: 8 }}>
+    <Card sx={{ maxWidth: '1280px', padding: 5, paddingX: 15 }}>
       <Box sx={{ display: 'flex' }}>
         <CardMedia
           component="img"
-          height="400px"
-          // Width="100px"
-          image="/kadin.png"
-          alt="green iguana"
-          sx={{ borderRadius: '10px' }}
+          // height="400px"
+          image={data.image}
+          alt={data.title}
+          sx={{
+            borderRadius: '10px',
+            objectFit: 'contain',
+            backgroundColor: '#F6F6F6',
+            padding: 4,
+          }}
         />
-        <CardContent sx={{ padding: 3, paddingLeft: 5, fontFamily: 'causten' }}>
+        <CardContent
+          sx={{
+            padding: 3,
+            paddingLeft: 5,
+            fontFamily: 'causten',
+            marginLeft: 5,
+          }}
+        >
           {/* <Typography
             sx={{
               fontFamily: 'sansc',
@@ -55,18 +84,20 @@ export default function ActionAreaCard() {
             variant="h5"
             component="div"
           >
-            Raven Hoodie
+            {data.title}
           </Typography>
           <Typography
             variant="body2"
             sx={{
               color: 'text.secondary',
-              fontSize: '12px',
+              fontSize: '10px',
               marginBottom: '30px',
+              // display: Block,
+              // width: '60%',
+              // padding:'50px'
             }}
           >
-            Desc: Lizards are a widespread group of squamate reptiles, with over
-            6,000 species, ranging across all continents except Antarctica
+            Description: {data.description}
           </Typography>
           <Box
             sx={{
