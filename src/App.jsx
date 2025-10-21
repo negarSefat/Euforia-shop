@@ -24,21 +24,9 @@ const Cart = lazy(() => import('./features/cart/Cart'));
 const queryClient = new QueryClient();
 function App() {
   return (
-    // <BrowserRouter>
     <QueryClientProvider client={queryClient}>
-      <RouterProvider router={router}>
-        {/* <Layout>
-          <Routes>
-            <Route path="/" element={<Products />} />
-            <Route path="products" element={<Products />} />
-            <Route path="aboutUs" element={<AboutUs />} />
-            <Route path="cart" element={<Cart />} />
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-        </Layout> */}
-      </RouterProvider>
+      <RouterProvider router={router}></RouterProvider>
     </QueryClientProvider>
-    // </BrowserRouter>
   );
 }
 

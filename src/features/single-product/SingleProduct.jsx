@@ -3,7 +3,15 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
-import { Box, Button, Divider, Rating } from '@mui/material';
+import {
+  autocompleteClasses,
+  Box,
+  Button,
+  Divider,
+  Fade,
+  Rating,
+  Tooltip,
+} from '@mui/material';
 import Radio from '@mui/material/Radio';
 import RadioGroup from '@mui/material/RadioGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
@@ -15,8 +23,10 @@ import { useQuery } from '@tanstack/react-query';
 import api from '../Api/api';
 import CircularSize from '../loading/Loading';
 import { Block } from '@mui/icons-material';
+import { useState } from 'react';
 
 export default function ActionAreaCard() {
+  const [number, setNumber] = useState(0);
   const { id } = useParams();
   // console.log('id', id);
   async function queryFn() {
@@ -32,53 +42,61 @@ export default function ActionAreaCard() {
     queryFn,
   });
 
+  function decrease() {
+    return setNumber((prev) => {
+      return prev > 0 ? prev - 1 : 0;
+    });
+  }
+  function increase() {
+    return setNumber((prev) => {
+      return prev + 1;
+    });
+  }
+
   if (isLoading) return <CircularSize />;
   return (
-    <Card sx={{ maxWidth: '1280px', padding: 5, paddingX: 15 }}>
-      <Box sx={{ display: 'flex' }}>
+    <Card
+      sx={{
+        maxWidth: '1280px',
+        margin: '0 auto',
+        padding: { xs: 3, md: 4 },
+        paddingX: { xs: 5, md: 15 },
+      }}
+    >
+      <Box
+        sx={{
+          display: 'flex',
+          flexDirection: { xs: 'column', md: 'row' },
+          alignItems: 'center',
+          justifyContent: 'center',
+        }}
+      >
         <CardMedia
           component="img"
-          // height="400px"
           image={data.image}
           alt={data.title}
           sx={{
             borderRadius: '10px',
             objectFit: 'contain',
             backgroundColor: '#F6F6F6',
-            padding: 4,
+            padding: 8,
+            height: { xs: '40vh', md: '90vh' },
           }}
         />
         <CardContent
           sx={{
-            padding: 3,
-            paddingLeft: 5,
+            paddingLeft: { xs: 2, md: 5 },
             fontFamily: 'causten',
-            marginLeft: 5,
+            marginLeft: { xs: 2, md: 5 },
           }}
         >
-          {/* <Typography
-            sx={{
-              fontFamily: 'sansc',
-              fontSize: '12px',
-              marginBottom: '15px',
-              backgroundColor: '#4989caff',
-              color: 'white',
-              padding: '5px',
-              display: 'inline-block',
-              borderRadius: '8px',
-            }}
-            gutterBottom
-            variant="h5"
-            component="div"
-          >
-            Woman's cloth
-          </Typography> */}
           <Typography
             sx={{
               fontFamily: 'sansc',
               fontWeight: 'bold',
               marginBottom: '20px',
               color: 'rgba(35, 55, 142, 1)',
+              fontSize: { xs: '18px', md: '24px' },
             }}
             gutterBottom
             variant="h5"
@@ -92,6 +110,22 @@ export default function ActionAreaCard() {
               color: 'text.secondary',
               fontSize: '10px',
               marginBottom: '30px',
+              display: '-webkit-box',
+              WebkitLineClamp: 3,
+              WebkitBoxOrient: 'vertical',
+              overflow: 'hidden',
+            }}
+          ></Typography>
+          <Typography
+            variant="body2"
+            sx={{
+              color: 'text.secondary',
+              fontSize: '10px',
+              marginBottom: '30px',
+              display: '-webkit-box',
+              WebkitBoxOrient: 'vertical',
+              WebkitLineClamp: 3,
+              overflow: 'hidden',
               // display: Block,
               // width: '60%',
               // padding:'50px'
@@ -112,19 +146,21 @@ export default function ActionAreaCard() {
               sx={{
                 border: '1px solid #615f5fff',
                 borderRadius: '8px',
-                padding: '3px',
+                padding: '5px',
               }}
             >
-              200$
+              {data.price}$
             </Box>
             <Box sx={{ display: 'flex', alignItems: 'center', gap: '7px' }}>
               <Rating
                 sx={{ fontSize: '20px' }}
                 name="read-only"
-                value={4}
+                value={data.rating.rate}
                 readOnly
               />
-              <span style={{ fontSize: '12px', color: 'gray' }}>3.5</span>
+              <span style={{ fontSize: '12px', color: 'gray' }}>
+                {data.rating.rate}
+              </span>
             </Box>
           </Box>
           <Divider></Divider>
@@ -211,7 +247,6 @@ export default function ActionAreaCard() {
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'space-between',
-              // padding: '5px',
               marginTop: '20px',
               fontSize: '12px',
             }}
@@ -226,20 +261,24 @@ export default function ActionAreaCard() {
                 gap: '20px',
               }}
             >
-              <button>-</button>
-              <span>5</span>
-              <button>+</button>
+              <button onClick={decrease} style={{ cursor: 'pointer' }}>
+                -
+              </button>
+              <span>{number}</span>
+              <button onClick={increase} style={{ cursor: 'pointer' }}>
+                +
+              </button>
             </Box>
             <Box
               sx={{
-                // Width: '500px',
                 display: 'flex',
                 alignItems: 'center',
                 gap: '5px',
                 backgroundColor: '#0d143bff',
                 color: 'white',
-                padding: '8px 80px',
+                padding: { xs: '2px 40px', md: '8px 60px' },
                 borderRadius: '30px',
+                cursor: 'pointer',
               }}
             >
               <ShoppingCartIcon sx={{ width: '15px' }} />

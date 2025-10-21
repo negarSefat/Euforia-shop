@@ -13,14 +13,7 @@ import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import { useNavigate } from 'react-router-dom';
 
-export default function ImgMediaCard({
-  id,
-  title,
-  // description,
-  image,
-  rating,
-  price,
-}) {
+export default function ImgMediaCard({ id, title, image, rating, price }) {
   console.log(id);
   const navigate = useNavigate();
   const [number, setNumber] = useState(0);
@@ -41,6 +34,7 @@ export default function ImgMediaCard({
         position: 'relative',
         margin: '1px',
         overflowX: 'visible',
+        cursor: 'pointer',
       }}
       onClick={() => navigate(`/products/${id}`)}
     >
@@ -92,33 +86,6 @@ export default function ImgMediaCard({
         >
           {title}
         </Typography>
-
-        {/* <Tooltip
-          title={description}
-          slots={{
-            transition: Fade,
-          }}
-          slotProps={{
-            transition: { timeout: 600 },
-          }}
-        >
-          <Typography
-            variant="body2"
-            sx={{
-              color: 'text.secondary',
-              display: '-webkit-box',
-              WebkitLineClamp: 1,
-              WebkitBoxOrient: 'vertical',
-              overflow: 'hidden',
-              fontSize: 10,
-              cursor: 'pointer',
-              padding: '12px',
-              textAlign: 'center',
-            }}
-          >
-            More detail: {description}
-          </Typography>
-        </Tooltip> */}
       </CardContent>
       <CardActions>
         <div
