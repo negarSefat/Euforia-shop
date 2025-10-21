@@ -3,15 +3,7 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
-import {
-  autocompleteClasses,
-  Box,
-  Button,
-  Divider,
-  Fade,
-  Rating,
-  Tooltip,
-} from '@mui/material';
+import { Box, Button, Divider, Fade, Rating, Tooltip } from '@mui/material';
 import Radio from '@mui/material/Radio';
 import RadioGroup from '@mui/material/RadioGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
@@ -79,8 +71,9 @@ export default function ActionAreaCard() {
             borderRadius: '10px',
             objectFit: 'contain',
             backgroundColor: '#F6F6F6',
-            padding: 8,
+            padding: 10,
             height: { xs: '40vh', md: '90vh' },
+            width: '90%',
           }}
         />
         <CardContent
@@ -96,7 +89,7 @@ export default function ActionAreaCard() {
               fontWeight: 'bold',
               marginBottom: '20px',
               color: 'rgba(35, 55, 142, 1)',
-              fontSize: { xs: '18px', md: '24px' },
+              fontSize: { xs: '18px', md: '20px' },
             }}
             gutterBottom
             variant="h5"

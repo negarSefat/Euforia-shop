@@ -36,7 +36,7 @@ export default function ImgMediaCard({ id, title, image, rating, price }) {
         overflowX: 'visible',
         cursor: 'pointer',
       }}
-      onClick={() => navigate(`/products/${id}`)}
+      onClick={() => navigate(`/products/${id}`)} //dynamic route
     >
       <CardMedia
         style={{
