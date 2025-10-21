@@ -10,8 +10,11 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import FormControl from '@mui/material/FormControl';
 import FormLabel from '@mui/material/FormLabel';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import { useParams } from 'react-router-dom';
 
 export default function ActionAreaCard() {
+  const { id } = useParams();
+  console.log('id', id);
   return (
     <Card sx={{ maxWidth: '1280px', padding: 8 }}>
       <Box sx={{ display: 'flex' }}>

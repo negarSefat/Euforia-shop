@@ -75,6 +75,7 @@ export default function Cards() {
             size={{ xs: 6, sm: 4, md: 3 }}
           >
             <BasicCard
+              id={id}
               title={title}
               description={description}
               image={image}

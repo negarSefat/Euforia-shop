@@ -7,21 +7,22 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
-import Tooltip from '@mui/material/Tooltip';
 import Fade from '@mui/material/Fade';
 import StarIcon from '@mui/icons-material/Star';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
+import { useNavigate } from 'react-router-dom';
 
 export default function ImgMediaCard({
+  id,
   title,
   // description,
   image,
   rating,
   price,
-  category,
 }) {
-  // console.log(cardObject);
+  console.log(id);
+  const navigate = useNavigate();
   const [number, setNumber] = useState(0);
   function decrease() {
     return setNumber((prev) => {
@@ -41,6 +42,7 @@ export default function ImgMediaCard({
         margin: '1px',
         overflowX: 'visible',
       }}
+      onClick={() => navigate(`/products/${id}`)}
     >
       <CardMedia
         style={{
@@ -166,7 +168,6 @@ export default function ImgMediaCard({
           style={{
             display: 'flex',
             alignItems: 'center',
-            // justifyContent: 'center',
             flexShrink: 0,
           }}
         >
