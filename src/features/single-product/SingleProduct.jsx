@@ -16,11 +16,17 @@ import api from '../Api/api';
 import CircularSize from '../loading/Loading';
 import { Block } from '@mui/icons-material';
 import { useState } from 'react';
+import { useContext } from 'react';
+import { CartContext } from '../../App';
 
 export default function ActionAreaCard() {
   const [number, setNumber] = useState(0);
+
   const { id } = useParams();
   // console.log('id', id);
+
+  const { cart } = useContext(CartContext); //array of products
+
   async function queryFn() {
     try {
       return await api.get(`products/${id}`);
@@ -53,6 +59,7 @@ export default function ActionAreaCard() {
         margin: '0 auto',
         padding: { xs: 3, md: 4 },
         paddingX: { xs: 5, md: 15 },
+        border: '1px solid black',
       }}
     >
       <Box
@@ -71,7 +78,7 @@ export default function ActionAreaCard() {
             borderRadius: '10px',
             objectFit: 'contain',
             backgroundColor: '#F6F6F6',
-            padding: 10,
+            padding: 8,
             height: { xs: '40vh', md: '90vh' },
             width: '90%',
           }}
@@ -88,8 +95,9 @@ export default function ActionAreaCard() {
               fontFamily: 'sansc',
               fontWeight: 'bold',
               marginBottom: '20px',
+              marginTop: '20px',
               color: 'rgba(35, 55, 142, 1)',
-              fontSize: { xs: '18px', md: '20px' },
+              fontSize: { xs: '16px', md: '18px' },
             }}
             gutterBottom
             variant="h5"
@@ -119,9 +127,6 @@ export default function ActionAreaCard() {
               WebkitBoxOrient: 'vertical',
               WebkitLineClamp: 3,
               overflow: 'hidden',
-              // display: Block,
-              // width: '60%',
-              // padding:'50px'
             }}
           >
             Description: {data.description}
@@ -219,7 +224,7 @@ export default function ActionAreaCard() {
             </FormControl>
           </Box>
           <Divider></Divider>
-          <Box
+          {/* <Box
             sx={{
               marginTop: '10px',
               fontSize: '12px',
@@ -233,7 +238,7 @@ export default function ActionAreaCard() {
               <span></span>
               <span></span>
             </Box>
-          </Box>
+          </Box> */}
 
           <Box
             sx={{
