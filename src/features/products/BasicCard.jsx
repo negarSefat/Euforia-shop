@@ -34,11 +34,10 @@ export default function ImgMediaCard({ id, title, image, rating, price }) {
         position: 'relative',
         margin: '1px',
         overflowX: 'visible',
-        cursor: 'pointer',
       }}
-      onClick={() => navigate(`/products/${id}`)} //dynamic route
     >
       <CardMedia
+        onClick={() => navigate(`/products/${id}`)} //dynamic route
         style={{
           objectFit: 'contain',
           padding: '4px',
@@ -47,6 +46,7 @@ export default function ImgMediaCard({ id, title, image, rating, price }) {
           width: '80%',
           marginInline: 'auto',
           borderRadius: '20px',
+          cursor: 'pointer',
         }}
         component="img"
         alt={title}
@@ -63,7 +63,6 @@ export default function ImgMediaCard({ id, title, image, rating, price }) {
           padding: 5,
           fontSize: 30,
           borderBottomLeftRadius: 5,
-          cursor: 'pointer',
         }}
       />
       <CardContent sx={{ padding: '10px', fontFamily: 'causten' }}>

@@ -17,20 +17,23 @@ import router from './features/about-us/router/router';
 
 // const Products = lazy(() => import('./features/products/Products'));
 import Products from './features/products/Products';
-import CartReducer from './Reducer/CartReducer';
+// import CartReducer from './Reducer/CartReducer';
 const AboutUs = lazy(() => import('./features/about-us/About'));
 const NotFound = lazy(() => import('./features/not-found/NotFound'));
 const Cart = lazy(() => import('./features/cart/Cart'));
 
-export const CartContext = createContext();
+// export const CartContext = createContext();
+
 const queryClient = new QueryClient();
 function App() {
-  const [state, dispatch] = useReducer(CartReducer, []);
+  // const [state, dispatch] = useReducer(CartReducer, []);
   return (
     <QueryClientProvider client={queryClient}>
-      <CartContext.Provider value={{ cart: state, setCart: dispatch }}>
-        <RouterProvider router={router}></RouterProvider>
-      </CartContext.Provider>
+      <RouterProvider router={router}>
+        {/* <CartContext.Provider
+          value={{ cart: state, setCart: dispatch }}
+        ></CartContext.Provider> */}
+      </RouterProvider>
     </QueryClientProvider>
   );
 }

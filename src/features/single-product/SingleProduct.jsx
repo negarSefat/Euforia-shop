@@ -16,8 +16,8 @@ import api from '../Api/api';
 import CircularSize from '../loading/Loading';
 import { Block } from '@mui/icons-material';
 import { useState } from 'react';
-import { useContext } from 'react';
-import { CartContext } from '../../App';
+// import { useContext } from 'react';
+// import { CartContext } from '../../App';
 
 export default function ActionAreaCard() {
   const [number, setNumber] = useState(0);
@@ -25,7 +25,7 @@ export default function ActionAreaCard() {
   const { id } = useParams();
   // console.log('id', id);
 
-  const { cart } = useContext(CartContext); //array of products
+  // const { cart } = useContext(CartContext); //array of products
 
   async function queryFn() {
     try {
@@ -59,7 +59,6 @@ export default function ActionAreaCard() {
         margin: '0 auto',
         padding: { xs: 3, md: 4 },
         paddingX: { xs: 5, md: 15 },
-        border: '1px solid black',
       }}
     >
       <Box
@@ -224,21 +223,6 @@ export default function ActionAreaCard() {
             </FormControl>
           </Box>
           <Divider></Divider>
-          {/* <Box
-            sx={{
-              marginTop: '10px',
-              fontSize: '12px',
-              color: 'rgba(113, 113, 116, 1)',
-            }}
-          >
-            <span>Colors</span>
-            <Box sx={{ display: 'flex' }}>
-              <span></span>
-              <span></span>
-              <span></span>
-              <span></span>
-            </Box>
-          </Box> */}
 
           <Box
             sx={{
