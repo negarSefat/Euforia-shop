@@ -27,23 +27,23 @@ export const useCartStore = create((set, get) => ({
     });
   },
 
-  //   increaseQuantity: (id) => {
-  //     set({
-  //       cart: get().cart.map((item) =>
-  //         item.id === id ? { ...item, quantity: item.quantity + 1 } : item
-  //       ),
-  //     });
-  //   },
+  increaseQuantity: (id) => {
+    set({
+      cart: get().cart.map((item) =>
+        item.id === id ? { ...item, quantity: item.quantity + 1 } : item
+      ),
+    });
+  },
 
-  //   decreaseQuantity: (id) => {
-  //     set({
-  //       cart: get()
-  //         .cart.map((item) =>
-  //           item.id === id ? { ...item, quantity: item.quantity - 1 } : item
-  //         )
-  //         .filter((item) => item.quantity > 0), // اگر صفر شد حذف بشه
-  //     });
-  //   },
+  decreaseQuantity: (id) => {
+    set({
+      cart: get()
+        .cart.map((item) =>
+          item.id === id ? { ...item, quantity: item.quantity - 1 } : item
+        )
+        .filter((item) => item.quantity > 0), // اگر صفر شد حذف بشه
+    });
+  },
 
   clearCart: () => set({ cart: [] }),
 }));

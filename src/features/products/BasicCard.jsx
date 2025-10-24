@@ -12,11 +12,15 @@ import StarIcon from '@mui/icons-material/Star';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import { useNavigate } from 'react-router-dom';
+import { useCartStore } from '../cart/useCart';
 
 export default function ImgMediaCard({ id, title, image, rating, price }) {
   console.log(id);
   const navigate = useNavigate();
   const [number, setNumber] = useState(0);
+
+  const addToCart = useCartStore((state) => state.addToCart);
+
   function decrease() {
     return setNumber((prev) => {
       return prev > 0 ? prev - 1 : 0;
@@ -130,7 +134,7 @@ export default function ImgMediaCard({ id, title, image, rating, price }) {
           padding: '0px 5px',
         }}
       >
-        <div
+        {/* <div
           style={{
             display: 'flex',
             alignItems: 'center',
@@ -169,11 +173,12 @@ export default function ImgMediaCard({ id, title, image, rating, price }) {
           >
             -
           </Button>
-        </div>
+        </div> */}
         <Button
           variant="contained"
           sx={{
-            width: { xs: '100%', md: '60%' },
+            // width: { xs: '100%', md: '60%' },
+            width: '100%',
             fontSize: { xs: '9px', sm: '10px' },
             fontFamily: 'causten',
             padding: '5px 15px',
@@ -183,7 +188,9 @@ export default function ImgMediaCard({ id, title, image, rating, price }) {
             <ShoppingCartIcon sx={{ width: { xs: '10px', sm: '14px' } }} />
           }
         >
-          <span>Add to cart</span>
+          <span onClick={() => addToCart({ id, title, image, price })}>
+            Add to cart
+          </span>
         </Button>
       </div>
     </Card>

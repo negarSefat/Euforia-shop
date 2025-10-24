@@ -6,8 +6,8 @@ import Button from '@mui/material/Button';
 import { QueryClientProvider, useQuery } from '@tanstack/react-query';
 import api from '../Api/api';
 
-// --------React Query--------
 export default function Cards() {
+  // --------React Query--------
   async function queryFn() {
     try {
       return await api.get('products');
