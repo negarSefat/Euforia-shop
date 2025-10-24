@@ -1,5 +1,3 @@
-// import { useEffect, useState } from 'react';
-// import axios from 'axios';
 import CircularSize from '../loading/Loading';
 import BasicCard from './BasicCard';
 import Grid from '@mui/material/Grid';
