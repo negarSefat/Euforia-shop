@@ -47,28 +47,3 @@ export const useCartStore = create((set, get) => ({
 
   clearCart: () => set({ cart: [] }),
 }));
-
-// const useCart = create((set) => {
-//   items: [
-//     {
-//       id: 1,
-//       quantity: 7,
-//     },
-//   ],
-//     addItems: (id)=>set(state=>{
-//         const foundItem=state.items.findIndex(item=>item.id===id)
-//     if(foundItem!=-1){
-//         const new Item=state.items.map(item=>{
-//             if(item.id===foundItem){
-//            return {
-//             ...item,
-//             quantity:item.quantity+1
-//         }
-//     }else{
-//         return item}
-//         })
-
-//     }
-// }
-//     )
-// });

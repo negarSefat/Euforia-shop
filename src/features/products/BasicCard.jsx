@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { useState } from 'react';
 import '@fontsource/poppins';
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
@@ -17,20 +16,9 @@ import { useCartStore } from '../cart/useCart';
 export default function ImgMediaCard({ id, title, image, rating, price }) {
   console.log(id);
   const navigate = useNavigate();
-  const [number, setNumber] = useState(0);
 
   const addToCart = useCartStore((state) => state.addToCart);
 
-  function decrease() {
-    return setNumber((prev) => {
-      return prev > 0 ? prev - 1 : 0;
-    });
-  }
-  function increase() {
-    return setNumber((prev) => {
-      return prev + 1;
-    });
-  }
   return (
     <Card
       sx={{
@@ -177,7 +165,6 @@ export default function ImgMediaCard({ id, title, image, rating, price }) {
         <Button
           variant="contained"
           sx={{
-            // width: { xs: '100%', md: '60%' },
             width: '100%',
             fontSize: { xs: '9px', sm: '10px' },
             fontFamily: 'causten',
