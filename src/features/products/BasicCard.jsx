@@ -14,7 +14,7 @@ import { useNavigate } from 'react-router-dom';
 import { useCartStore } from '../cart/useCart';
 
 export default function ImgMediaCard({ id, title, image, rating, price }) {
-  console.log(id);
+  // console.log(id);
   const navigate = useNavigate();
 
   const addToCart = useCartStore((state) => state.addToCart);
@@ -122,46 +122,6 @@ export default function ImgMediaCard({ id, title, image, rating, price }) {
           padding: '0px 5px',
         }}
       >
-        {/* <div
-          style={{
-            display: 'flex',
-            alignItems: 'center',
-            flexShrink: 0,
-          }}
-        >
-          <Button
-            onClick={increase}
-            sx={{
-              padding: '10px 0',
-              color: 'black',
-              lineHeight: '0.5',
-              minWidth: '25px',
-              border: ' 1px solid rgba(26, 31, 104, 0.3)',
-              display: { xs: 'none', md: 'block' },
-            }}
-          >
-            +
-          </Button>
-          <Typography
-            sx={{ display: { xs: 'none', md: 'block' }, padding: '5px' }}
-          >
-            {number}
-          </Typography>
-          <Button
-            onClick={decrease}
-            sx={{
-              padding: '10px 0',
-              color: 'black',
-              lineHeight: '0.5',
-              minWidth: '25px',
-              border: ' 1px solid rgba(26, 31, 104, 0.3)',
-              width: { xs: '5px' },
-              display: { xs: 'none', md: 'block' },
-            }}
-          >
-            -
-          </Button>
-        </div> */}
         <Button
           variant="contained"
           sx={{

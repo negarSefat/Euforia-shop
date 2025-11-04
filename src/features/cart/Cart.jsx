@@ -132,7 +132,9 @@ export default function BasicTable() {
               </TableRow>
             ))}
           </TableBody>
-          <button onClick={clearCart}>Delete cart</button>
+          <button style={{ padding: 2, marginTop: 50 }} onClick={clearCart}>
+            Delete cart
+          </button>
         </Table>
       </TableContainer>
     </>

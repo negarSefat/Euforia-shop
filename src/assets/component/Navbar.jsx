@@ -216,6 +216,7 @@ function ResponsiveAppBar() {
               }}
             ></ShoppingCartIcon>
             <PersonOutlineIcon
+              onClick={() => navigate('/login')}
               sx={{
                 backgroundColor: '#F6F6F6',
                 color: '#807D7E',

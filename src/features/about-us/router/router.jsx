@@ -5,7 +5,12 @@ import NotFound from '../../not-found/NotFound';
 import Layout from '../../../assets/component/Layout';
 import Products from '../../products/Products';
 import SingleProduct from '../../single-product/SingleProduct';
+import ProtectedRoute from './protected-route';
+import AdminPanel from '../../admin-panel/adminPanel';
+import Homepage from '../../homepage/HomePage';
+import Login from '../../login/Login';
 
+const isAuthenticated = true;
 const router = createBrowserRouter([
   {
     path: '/',
@@ -16,15 +21,21 @@ const router = createBrowserRouter([
         element: <Products />, //will be Home page
       },
       {
+        element: <ProtectedRoute isAuthenticated={isAuthenticated} />,
+        children: [{ path: 'admin', element: <AdminPanel /> }],
+      },
+      {
         path: 'products',
         element: <Products />,
       },
       { path: '/products/:id', element: <SingleProduct /> },
       { path: 'aboutUs', element: <AboutUs /> },
       { path: 'cart', element: <Cart /> },
+
       { path: '*', element: <NotFound /> },
     ],
   },
+  { path: 'login', element: <Login /> },
 ]);
 
 export default router;

@@ -4,7 +4,6 @@ import Cards from './Cards';
 export default function Products() {
   return (
     <>
-      {/* <Header /> */}
       <div
         style={{
           fontFamily: 'causten',
