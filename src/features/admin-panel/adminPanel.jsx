@@ -1,24 +1,42 @@
 import { useState, useEffect } from 'react';
 import {
+  Box,
+  Drawer,
+  CssBaseline,
+  AppBar,
+  Toolbar,
+  List,
+  Typography,
+  Divider,
+  IconButton,
+  ListItem,
+  ListItemButton,
+  ListItemText,
+  Container,
   Button,
   Dialog,
   DialogTitle,
   DialogContent,
-  TextField,
   DialogActions,
+  TextField,
   Table,
   TableHead,
   TableRow,
   TableCell,
   TableBody,
-  Container,
 } from '@mui/material';
+import MenuIcon from '@mui/icons-material/Menu';
+import EditNoteOutlinedIcon from '@mui/icons-material/EditNoteOutlined';
+import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
+import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined';
 import axios from 'axios';
-import TableContainer from '@mui/material/TableContainer';
+
+const drawerWidth = 240;
 
 export default function AdminPanel() {
+  const [openDrawer, setOpenDrawer] = useState(true);
   const [products, setProducts] = useState([]);
-  const [open, setOpen] = useState(false);
+  const [openDialog, setOpenDialog] = useState(false);
   const [formData, setFormData] = useState({
     title: '',
     price: '',
@@ -27,13 +45,17 @@ export default function AdminPanel() {
 
   useEffect(() => {
     axios
-      .get('https://fakestoreapi.com/products?limit=3')
+      .get('https://fakestoreapi.com/products?limit=5')
       .then((res) => setProducts(res.data));
   }, []);
 
+  // const handleDrawerToggle = () => {
+  //   setOpenDrawer(!openDrawer);
+  // };
+
   const handleAddClick = () => {
     setFormData({ title: '', price: '', description: '' });
-    setOpen(true);
+    setOpenDialog(true);
   };
 
   const handleSubmit = async () => {
@@ -42,16 +64,16 @@ export default function AdminPanel() {
         'https://fakestoreapi.com/products',
         formData
       );
-      console.log('post status', res);
       if (res.status === 200 || res.status === 201) {
-        console.log('✅ Product successfully added!');
-        console.log('Response:', res.data);
+        console.log(' Product was successfully added!✅');
+        console.log('Response:', res);
+        console.log('Response status code:', res.status);
       }
       setProducts([...products, { ...formData, id: Date.now() }]);
     } catch (err) {
-      console.error('❌ Error has occured while sending request:', err);
+      console.error('❌ An Error occured: ❌', err);
     }
-    setOpen(false);
+    setOpenDialog(false);
   };
 
   const handleDelete = (id) => {
@@ -61,7 +83,7 @@ export default function AdminPanel() {
   const handleEdit = (id) => {
     const product = products.find((p) => p.id === id);
     setFormData(product);
-    setOpen(true);
+    setOpenDialog(true);
   };
 
   const handleLogout = () => {
@@ -69,96 +91,204 @@ export default function AdminPanel() {
     window.location.href = '/login';
   };
 
+  const menuItems = [
+    { text: 'Dashboard', disabled: true },
+    { text: 'Orders', disabled: true },
+    { text: 'Customers', disabled: true },
+    { text: 'Add Product', disabled: false },
+    { text: 'Reports', disabled: true },
+    { text: 'Settings', disabled: true },
+  ];
+
   return (
-    <Container sx={{ mt: 5, fontFamily: 'causten', maxWidth: '1280px' }}>
-      <h2 style={{ textAlign: 'center' }}>Admin Panel</h2>
-      <div
-        style={{
-          display: 'flex',
-          justifyContent: 'space-between',
-          marginInline: 90,
+    <Box
+      sx={{ display: 'flex', fontFamily: 'causten', padding: 8, paddingTop: 0 }}
+    >
+      <CssBaseline />
+
+      {/* 🔹 Sidebar Drawer */}
+      <Drawer
+        variant="persistent"
+        open={openDrawer}
+        sx={{
+          width: drawerWidth,
+          flexShrink: 0,
+          '& .MuiDrawer-paper': {
+            width: drawerWidth,
+            boxSizing: 'border-box',
+            transition: 'width 0.3s',
+            backgroundColor: '#080b21ff',
+            color: 'white',
+          },
         }}
       >
-        <Button
-          style={{ border: '1px solid #1976d2' }}
-          variant="outlined"
-          onClick={handleLogout}
-        >
-          Logout
-        </Button>
-        <Button variant="contained" color="primary" onClick={handleAddClick}>
-          Add New Product
-        </Button>
-      </div>
-      <TableContainer sx={{ height: 'auto', padding: 10, paddingTop: 2 }}>
-        <Table sx={{ mt: 3 }}>
-          <TableHead>
-            <TableRow>
-              <TableCell>Title</TableCell>
-              <TableCell>Price</TableCell>
-              <TableCell>Description</TableCell>
-              <TableCell>Actions</TableCell>
-            </TableRow>
-          </TableHead>
-          <TableBody>
-            {products.map((p) => (
-              <TableRow key={p.id}>
-                <TableCell>{p.title}</TableCell>
-                <TableCell>{p.price}</TableCell>
-                <TableCell>{p.description}</TableCell>
-                <TableCell>
-                  <Button color="secondary" onClick={() => handleEdit(p.id)}>
-                    Edit
-                  </Button>
-                  <Button color="error" onClick={() => handleDelete(p.id)}>
-                    Delete
-                  </Button>
-                </TableCell>
-              </TableRow>
+        <Toolbar />
+        <Box sx={{ overflow: 'auto' }}>
+          <Typography
+            noWrap
+            component="div"
+            sx={{ color: 'black' }}
+          ></Typography>
+          <List>
+            <p style={{ fontSize: '22px', margin: 15 }}>Admin Panel</p>
+            {menuItems.map((item, index) => (
+              <ListItem key={index} disablePadding>
+                <ListItemButton disabled={item.disabled}>
+                  <ListItemText primary={item.text} />
+                </ListItemButton>
+              </ListItem>
             ))}
-          </TableBody>
-        </Table>
-      </TableContainer>
-
-      {/* -------modal--------- */}
-      <Dialog open={open} onClose={() => setOpen(false)}>
-        <DialogTitle>Add / Edit Product</DialogTitle>
-        <DialogContent>
-          <TextField
-            label="Title"
-            fullWidth
-            margin="dense"
-            value={formData.title}
-            onChange={(e) =>
-              setFormData({ ...formData, title: e.target.value })
-            }
-          />
-          <TextField
-            label="Price"
-            fullWidth
-            margin="dense"
-            value={formData.price}
-            onChange={(e) =>
-              setFormData({ ...formData, price: e.target.value })
-            }
-          />
-          <TextField
-            label="Description"
-            fullWidth
-            margin="dense"
-            value={formData.description}
-            onChange={(e) =>
-              setFormData({ ...formData, description: e.target.value })
-            }
-          />
-        </DialogContent>
-        <DialogActions>
-          <Button onClick={() => setOpen(false)}>Cancel</Button>
-          <Button onClick={handleSubmit} variant="contained">
-            Save
+          </List>
+          <Divider />
+          <Button
+            variant="outlined"
+            color="error"
+            sx={{ m: 2, marginTop: 16 }}
+            onClick={handleLogout}
+          >
+            Logout
           </Button>
-        </DialogActions>
-      </Dialog>
-    </Container>
+        </Box>
+      </Drawer>
+
+      {/* table */}
+      <Box
+        component="main"
+        sx={{
+          flexGrow: 1,
+          p: 3,
+          mt: 8,
+          transition: 'margin 0.3s',
+        }}
+      >
+        <Container sx={{ fontFamily: 'causten' }}>
+          <Typography
+            variant="h5"
+            sx={{ textAlign: 'center', fontFamily: 'causten', marginBottom: 5 }}
+          >
+            Welcome Negar...
+          </Typography>
+          <Divider />
+          <div
+            style={{
+              display: 'flex',
+              justifyContent: 'space-between',
+              marginTop: '30px',
+              marginBottom: '30px',
+            }}
+          >
+            <Typography
+              variant="h5"
+              sx={{ mb: 2, fontFamily: 'causten', fontSize: '18px' }}
+            >
+              Products List
+            </Typography>
+
+            <Button
+              variant="contained"
+              color="primary"
+              onClick={handleAddClick}
+              sx={{
+                fontFamily: 'causten',
+                padding: 1,
+                backgroundColor: '#181e4bff',
+              }}
+            >
+              + Add Product
+            </Button>
+          </div>
+
+          <Table>
+            <TableHead>
+              <TableRow sx={{ fontFamily: 'causten' }}>
+                <TableCell>Image</TableCell>
+                <TableCell>Title</TableCell>
+                <TableCell>Price</TableCell>
+                <TableCell>Rating</TableCell>
+                <TableCell>Actions</TableCell>
+              </TableRow>
+            </TableHead>
+            <TableBody>
+              {products.map((product) => (
+                <TableRow key={product.id}>
+                  <TableCell>
+                    <img
+                      style={{
+                        width: '60px',
+                        height: '70px',
+                        marginTop: 10,
+                        padding: 3,
+                      }}
+                      src={product.image}
+                    ></img>
+                  </TableCell>
+                  <TableCell>{product.title}</TableCell>
+                  <TableCell>${product.price} </TableCell>
+                  <TableCell>{product.rating.rate}</TableCell>
+                  <TableCell>
+                    <Button color="" onClick={() => handleEdit(product.id)}>
+                      <EditNoteOutlinedIcon></EditNoteOutlinedIcon>
+                    </Button>
+                    <Button onClick={() => handleDelete(product.id)}>
+                      <DeleteOutlineOutlinedIcon
+                        sx={{ color: '#676d91ff' }}
+                      ></DeleteOutlineOutlinedIcon>
+                    </Button>
+                  </TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
+
+          <Dialog open={openDialog} onClose={() => setOpenDialog(false)}>
+            <DialogTitle>Add/Edit a Product</DialogTitle>
+            <DialogContent sx={{ padding: 5 }}>
+              <TextField
+                label="Title"
+                fullWidth
+                margin="dense"
+                value={formData.title}
+                onChange={(e) =>
+                  setFormData({ ...formData, title: e.target.value })
+                }
+              />
+              <TextField
+                label="Price"
+                fullWidth
+                margin="dense"
+                value={formData.price}
+                onChange={(e) =>
+                  setFormData({ ...formData, price: e.target.value })
+                }
+              />
+              <TextField
+                label="Rating"
+                fullWidth
+                margin="dense"
+                value={formData.rating}
+                onChange={(e) =>
+                  setFormData({ ...formData, rating: e.target.value })
+                }
+              />
+            </DialogContent>
+            <DialogActions>
+              <Button
+                onClick={() => setOpenDialog(false)}
+                sx={{ color: '#282d4eff' }}
+              >
+                Cancel
+              </Button>
+              <Button
+                onClick={handleSubmit}
+                variant="contained"
+                sx={{ backgroundColor: '#080b21ff' }}
+              >
+                Save
+              </Button>
+            </DialogActions>
+          </Dialog>
+        </Container>
+      </Box>
+    </Box>
   );
 }

@@ -65,13 +65,26 @@ body {
   display: flex;
   flex-direction: column;
 }
-/* .css-1f9xtph-MuiTypography-root {
-  font-family: 'sansc' !important;
-}
-/* .css-bj4yyt-MuiTypography-root {
-} */
 
 .css-rizt0-MuiTypography-root {
   font-family: 'sansc' !important;
   font-size: 10px !important;
+}
+
+@media (min-width: 600px) {
+  .css-1ygil4i-MuiToolbar-root {
+    min-height: 0 !important;
+  }
+}
+
+.css-1ab4z98 {
+  margin-top: 0 !important;
+}
+
+.css-1dc80h3-MuiTableCell-root {
+  font-family: 'causten' !important;
+}
+
+.css-rvoa5x-MuiTypography-root-MuiDialogTitle-root {
+  font-family: 'causten' !important;
 }

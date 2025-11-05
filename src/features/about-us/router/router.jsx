@@ -20,10 +20,7 @@ const router = createBrowserRouter([
         index: true,
         element: <Products />, //will be Home page
       },
-      {
-        element: <ProtectedRoute isAuthenticated={isAuthenticated} />,
-        children: [{ path: 'admin', element: <AdminPanel /> }],
-      },
+
       {
         path: 'products',
         element: <Products />,
@@ -36,6 +33,10 @@ const router = createBrowserRouter([
     ],
   },
   { path: 'login', element: <Login /> },
+  {
+    element: <ProtectedRoute isAuthenticated={isAuthenticated} />,
+    children: [{ path: 'admin', element: <AdminPanel /> }],
+  },
 ]);
 
 export default router;
