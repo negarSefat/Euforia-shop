@@ -134,7 +134,6 @@ export default function Footer() {
               marginRight: '10px',
             }}
           >
-            {/* <span style={{ fontFamily: 'TIMES', fontSize: '24px' }}>GVC</span> */}
             <FacebookIcon />
             <InstagramIcon />
             <XIcon />

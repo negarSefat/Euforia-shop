@@ -64,14 +64,13 @@ export default function BasicTable() {
     <Emptycart />
   ) : (
     <>
-      {' '}
       <h2 style={{ textAlign: 'center', padding: 7 }}>🛒Cart</h2>
       <TableContainer
         component={Paper}
-        sx={{ height: 'auto', padding: 10, paddingTop: 0 }}
+        sx={{ height: 'auto', padding: 10, paddingTop: 2 }}
       >
         <Table aria-label="cart table" sx={{ border: '1px dashed #272b70ff' }}>
-          <TableHead sx={{ backgroundColor: '#548dc63e' }}>
+          <TableHead sx={{ backgroundColor: '#3c424234' }}>
             <TableRow>
               <TableCell align="start">Image</TableCell>
               <TableCell align="start">title</TableCell>
