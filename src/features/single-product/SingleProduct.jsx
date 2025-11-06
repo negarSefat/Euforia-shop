@@ -16,16 +16,13 @@ import api from '../Api/api';
 import CircularSize from '../loading/Loading';
 import { Block } from '@mui/icons-material';
 import { useState } from 'react';
-// import { useContext } from 'react';
-// import { CartContext } from '../../App';
+import { useCartStore } from '../cart/useCart';
 
 export default function ActionAreaCard() {
-  const [number, setNumber] = useState(0);
-
+  const [number, setNumber] = useState(1);
+  const { addToCart } = useCartStore();
   const { id } = useParams();
   // console.log('id', id);
-
-  // const { cart } = useContext(CartContext); //array of products
 
   async function queryFn() {
     try {
@@ -252,6 +249,11 @@ export default function ActionAreaCard() {
               </button>
             </Box>
             <Box
+              onClick={() => {
+                if (number > 0) {
+                  addToCart(data, number);
+                }
+              }}
               sx={{
                 display: 'flex',
                 alignItems: 'center',

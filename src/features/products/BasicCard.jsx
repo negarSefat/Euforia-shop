@@ -124,6 +124,7 @@ export default function ImgMediaCard({ id, title, image, rating, price }) {
       >
         <Button
           variant="contained"
+          onClick={() => addToCart({ id, title, image, price })}
           sx={{
             width: '100%',
             fontSize: { xs: '9px', sm: '10px' },
@@ -135,9 +136,7 @@ export default function ImgMediaCard({ id, title, image, rating, price }) {
             <ShoppingCartIcon sx={{ width: { xs: '10px', sm: '14px' } }} />
           }
         >
-          <span onClick={() => addToCart({ id, title, image, price })}>
-            Add to cart
-          </span>
+          Add to cart
         </Button>
       </div>
     </Card>

@@ -34,7 +34,7 @@ import axios from 'axios';
 const drawerWidth = 240;
 
 export default function AdminPanel() {
-  const [openDrawer, setOpenDrawer] = useState(true);
+  // const [openDrawer, setOpenDrawer] = useState(true);
   const [products, setProducts] = useState([]);
   const [openDialog, setOpenDialog] = useState(false);
   const [formData, setFormData] = useState({
@@ -48,10 +48,6 @@ export default function AdminPanel() {
       .get('https://fakestoreapi.com/products?limit=5')
       .then((res) => setProducts(res.data));
   }, []);
-
-  // const handleDrawerToggle = () => {
-  //   setOpenDrawer(!openDrawer);
-  // };
 
   const handleAddClick = () => {
     setFormData({ title: '', price: '', description: '' });
@@ -106,10 +102,9 @@ export default function AdminPanel() {
     >
       <CssBaseline />
 
-      {/* 🔹 Sidebar Drawer */}
       <Drawer
         variant="persistent"
-        open={openDrawer}
+        open={true}
         sx={{
           width: drawerWidth,
           flexShrink: 0,
@@ -168,7 +163,7 @@ export default function AdminPanel() {
           >
             Welcome Negar...
           </Typography>
-          <Divider />
+          {/* <Divider /> */}
           <div
             style={{
               display: 'flex',

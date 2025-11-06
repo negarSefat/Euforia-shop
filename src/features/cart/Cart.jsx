@@ -2,6 +2,7 @@
 import Emptycart from './EmptyCart';
 import { useCartStore } from './useCart';
 import DeleteIcon from '@mui/icons-material/Delete';
+import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined';
 
 // export default function Cart() {
 //   const {
@@ -69,13 +70,14 @@ export default function BasicTable() {
         component={Paper}
         sx={{ height: 'auto', padding: 10, paddingTop: 0 }}
       >
-        <Table aria-label="cart table">
-          <TableHead>
+        <Table aria-label="cart table" sx={{ border: '1px dashed #272b70ff' }}>
+          <TableHead sx={{ backgroundColor: '#548dc63e' }}>
             <TableRow>
+              <TableCell align="start">Image</TableCell>
               <TableCell align="start">title</TableCell>
               <TableCell align="center">price</TableCell>
               <TableCell align="center">quantity</TableCell>
-              <TableCell align="center"> </TableCell>
+              <TableCell align="center">Action</TableCell>
             </TableRow>
           </TableHead>
           <TableBody sx={{ margin: 'auto' }}>
@@ -86,6 +88,16 @@ export default function BasicTable() {
                   '&:last-child td, &:last-child th': { border: 0 },
                 }}
               >
+                <TableCell
+                  align="start"
+                  sx={{ color: '#111880ff', fontFamily: 'causten' }}
+                >
+                  <img
+                    style={{ width: '60px', padding: 5 }}
+                    src={item.image}
+                    alt=""
+                  />
+                </TableCell>
                 <TableCell
                   align="start"
                   sx={{ color: '#111880ff', fontFamily: 'causten' }}
@@ -132,10 +144,31 @@ export default function BasicTable() {
               </TableRow>
             ))}
           </TableBody>
-          <button style={{ padding: 2, marginTop: 50 }} onClick={clearCart}>
+        </Table>
+
+        <div
+          style={{
+            display: 'flex',
+            justifyContent: 'flex-end',
+            marginTop: 20,
+            paddingRight: 10,
+          }}
+        >
+          <button
+            onClick={clearCart}
+            style={{
+              backgroundColor: '#c21c1cff',
+              color: 'white',
+              border: 'none',
+              padding: '8px 16px',
+              borderRadius: '6px',
+              cursor: 'pointer',
+              fontWeight: 'bold',
+            }}
+          >
             Delete cart
           </button>
-        </Table>
+        </div>
       </TableContainer>
     </>
   );
