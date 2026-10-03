@@ -1,10 +1,10 @@
 @font-face {
-  font-family: 'causten';
-  src: url('/font/Causten\ Medium.ttf') format(trueType);
+  font-family: "causten";
+  src: url("/font/Causten\ Medium.ttf") format(trueType);
 }
 
 @font-face {
-  font-family: 'sansc';
+  font-family: "sansc";
   src: url(/font/Fontspring-DEMO-coresansc35.otf);
 }
 
@@ -35,14 +35,14 @@ body {
   justify-content: center;
   align-items: center;
   font-size: 10px;
-  font-family: 'sansc';
+  font-family: "sansc";
 }
 .footer {
   display: flex;
   height: auto;
-  max-width: 1280px;
+  width: 100%;
   background-color: #3c4242;
-  color: 'white';
+  color: white;
   font-family: causten;
   font-size: 10px;
 }
@@ -67,7 +67,7 @@ body {
 }
 
 .css-rizt0-MuiTypography-root {
-  font-family: 'sansc' !important;
+  font-family: "sansc" !important;
   font-size: 10px !important;
 }
 
@@ -82,7 +82,7 @@ body {
 }
 
 .css-1dc80h3-MuiTableCell-root {
-  font-family: 'causten' !important;
+  font-family: "causten" !important;
 }
 
 .css-rvoa5x-MuiTypography-root-MuiDialogTitle-root {
@@ -94,8 +94,8 @@ body {
 }
 
 .css-1qsl51r-MuiTypography-root {
-  font-family: 'causten' !important;
+  font-family: "causten" !important;
 }
 .css-1f7xktq-MuiTypography-root {
-  font-family: 'causten' !important;
+  font-family: "causten" !important;
 }
