@@ -9,17 +9,17 @@ import "@fontsource/roboto/400.css";
 import "@fontsource/roboto/500.css";
 import "@fontsource/roboto/700.css";
 
-import Navbar from "./assets/component/Navbar";
-import Header from "./assets/component/Header";
-import Footer from "./assets/component/Footer";
-import Layout from "./assets/component/Layout";
+import Navbar from "./component/layout/Navbar";
+import Header from "./component/layout/Header";
+import Footer from "./component/layout/Footer";
+import Layout from "./component/layout/Layout";
 import router from "./router/router";
 
 // const Products = lazy(() => import('./features/products/Products'));
 import Products from "./features/products/Products";
 // import CartReducer from './Reducer/CartReducer';
 const AboutUs = lazy(() => import("./features/about-us/About"));
-const NotFound = lazy(() => import("./features/not-found/NotFound"));
+const NotFound = lazy(() => import("./component/common/not-found/NotFound"));
 const Cart = lazy(() => import("./features/cart/Cart"));
 
 // export const CartContext = createContext();

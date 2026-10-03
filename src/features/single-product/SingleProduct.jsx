@@ -1,22 +1,22 @@
-import * as React from 'react';
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
-import Typography from '@mui/material/Typography';
-import { Box, Button, Divider, Fade, Rating, Tooltip } from '@mui/material';
-import Radio from '@mui/material/Radio';
-import RadioGroup from '@mui/material/RadioGroup';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import FormControl from '@mui/material/FormControl';
-import FormLabel from '@mui/material/FormLabel';
-import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
-import { useParams } from 'react-router-dom';
-import { useQuery } from '@tanstack/react-query';
-import api from '../Api/api';
-import CircularSize from '../loading/Loading';
-import { Block } from '@mui/icons-material';
-import { useState } from 'react';
-import { useCartStore } from '../cart/useCart';
+import * as React from "react";
+import Card from "@mui/material/Card";
+import CardContent from "@mui/material/CardContent";
+import CardMedia from "@mui/material/CardMedia";
+import Typography from "@mui/material/Typography";
+import { Box, Button, Divider, Fade, Rating, Tooltip } from "@mui/material";
+import Radio from "@mui/material/Radio";
+import RadioGroup from "@mui/material/RadioGroup";
+import FormControlLabel from "@mui/material/FormControlLabel";
+import FormControl from "@mui/material/FormControl";
+import FormLabel from "@mui/material/FormLabel";
+import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+import { useParams } from "react-router-dom";
+import { useQuery } from "@tanstack/react-query";
+import api from "../Api/api";
+import CircularSize from "../../component/common/loading/Loading";
+import { Block } from "@mui/icons-material";
+import { useState } from "react";
+import { useCartStore } from "../cart/useCart";
 
 export default function ActionAreaCard() {
   const [number, setNumber] = useState(1);
@@ -52,18 +52,18 @@ export default function ActionAreaCard() {
   return (
     <Card
       sx={{
-        maxWidth: '1280px',
-        margin: '0 auto',
+        maxWidth: "1280px",
+        margin: "0 auto",
         padding: { xs: 3, md: 4 },
         paddingX: { xs: 5, md: 15 },
       }}
     >
       <Box
         sx={{
-          display: 'flex',
-          flexDirection: { xs: 'column', md: 'row' },
-          alignItems: 'center',
-          justifyContent: 'center',
+          display: "flex",
+          flexDirection: { xs: "column", md: "row" },
+          alignItems: "center",
+          justifyContent: "center",
         }}
       >
         <CardMedia
@@ -71,29 +71,29 @@ export default function ActionAreaCard() {
           image={data.image}
           alt={data.title}
           sx={{
-            borderRadius: '10px',
-            objectFit: 'contain',
-            backgroundColor: '#F6F6F6',
+            borderRadius: "10px",
+            objectFit: "contain",
+            backgroundColor: "#F6F6F6",
             padding: 8,
-            height: { xs: '40vh', md: '90vh' },
-            width: '90%',
+            height: { xs: "40vh", md: "90vh" },
+            width: "90%",
           }}
         />
         <CardContent
           sx={{
             paddingLeft: { xs: 2, md: 5 },
-            fontFamily: 'causten',
+            fontFamily: "causten",
             marginLeft: { xs: 2, md: 5 },
           }}
         >
           <Typography
             sx={{
-              fontFamily: 'sansc',
-              fontWeight: 'bold',
-              marginBottom: '20px',
-              marginTop: '20px',
-              color: 'rgba(35, 55, 142, 1)',
-              fontSize: { xs: '16px', md: '18px' },
+              fontFamily: "sansc",
+              fontWeight: "bold",
+              marginBottom: "20px",
+              marginTop: "20px",
+              color: "rgba(35, 55, 142, 1)",
+              fontSize: { xs: "16px", md: "18px" },
             }}
             gutterBottom
             variant="h5"
@@ -104,73 +104,73 @@ export default function ActionAreaCard() {
           <Typography
             variant="body2"
             sx={{
-              color: 'text.secondary',
-              fontSize: '10px',
-              marginBottom: '30px',
-              display: '-webkit-box',
+              color: "text.secondary",
+              fontSize: "10px",
+              marginBottom: "30px",
+              display: "-webkit-box",
               WebkitLineClamp: 3,
-              WebkitBoxOrient: 'vertical',
-              overflow: 'hidden',
+              WebkitBoxOrient: "vertical",
+              overflow: "hidden",
             }}
           ></Typography>
           <Typography
             variant="body2"
             sx={{
-              color: 'text.secondary',
-              fontSize: '10px',
-              marginBottom: '30px',
-              display: '-webkit-box',
-              WebkitBoxOrient: 'vertical',
+              color: "text.secondary",
+              fontSize: "10px",
+              marginBottom: "30px",
+              display: "-webkit-box",
+              WebkitBoxOrient: "vertical",
               WebkitLineClamp: 3,
-              overflow: 'hidden',
+              overflow: "hidden",
             }}
           >
             Description: {data.description}
           </Typography>
           <Box
             sx={{
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'space-between',
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "space-between",
 
-              marginBottom: '20px',
+              marginBottom: "20px",
             }}
           >
             <Box
               sx={{
-                border: '1px solid #615f5fff',
-                borderRadius: '8px',
-                padding: '5px',
+                border: "1px solid #615f5fff",
+                borderRadius: "8px",
+                padding: "5px",
               }}
             >
               {data.price}$
             </Box>
-            <Box sx={{ display: 'flex', alignItems: 'center', gap: '7px' }}>
+            <Box sx={{ display: "flex", alignItems: "center", gap: "7px" }}>
               <Rating
-                sx={{ fontSize: '20px' }}
+                sx={{ fontSize: "20px" }}
                 name="read-only"
                 value={data.rating.rate}
                 readOnly
               />
-              <span style={{ fontSize: '12px', color: 'gray' }}>
+              <span style={{ fontSize: "12px", color: "gray" }}>
                 {data.rating.rate}
               </span>
             </Box>
           </Box>
           <Divider></Divider>
           <Box>
-            <FormControl sx={{ marginTop: '15px' }}>
+            <FormControl sx={{ marginTop: "15px" }}>
               <FormLabel
                 id="demo-row-radio-buttons-group-label"
-                sx={{ fontSize: '10px', marginBottom: '10px' }}
+                sx={{ fontSize: "10px", marginBottom: "10px" }}
               >
                 Choose a size
               </FormLabel>
               <RadioGroup
                 sx={{
-                  backgroundColor: '#f0f0f5ff',
-                  borderRadius: '10px',
-                  marginBottom: '20px',
+                  backgroundColor: "#f0f0f5ff",
+                  borderRadius: "10px",
+                  marginBottom: "20px",
                 }}
                 row
                 aria-labelledby="demo-row-radio-buttons-group-label"
@@ -178,41 +178,41 @@ export default function ActionAreaCard() {
               >
                 <FormControlLabel
                   sx={{
-                    marginLeft: '1px',
+                    marginLeft: "1px",
                   }}
                   value="Small"
                   control={
-                    <Radio sx={{ '& .MuiSvgIcon-root': { fontSize: 16 } }} />
+                    <Radio sx={{ "& .MuiSvgIcon-root": { fontSize: 16 } }} />
                   }
                   label="Small"
                 />
                 <FormControlLabel
                   sx={{
-                    marginLeft: '1px',
+                    marginLeft: "1px",
                   }}
                   value="Medium"
                   control={
-                    <Radio sx={{ '& .MuiSvgIcon-root': { fontSize: 16 } }} />
+                    <Radio sx={{ "& .MuiSvgIcon-root": { fontSize: 16 } }} />
                   }
                   label="Medium"
                 />
                 <FormControlLabel
                   sx={{
-                    marginLeft: '1px',
+                    marginLeft: "1px",
                   }}
                   value="Large"
                   control={
-                    <Radio sx={{ '& .MuiSvgIcon-root': { fontSize: 16 } }} />
+                    <Radio sx={{ "& .MuiSvgIcon-root": { fontSize: 16 } }} />
                   }
                   label="Large"
                 />
                 <FormControlLabel
                   sx={{
-                    marginLeft: '1px',
+                    marginLeft: "1px",
                   }}
                   value="Extra large"
                   control={
-                    <Radio sx={{ '& .MuiSvgIcon-root': { fontSize: 16 } }} />
+                    <Radio sx={{ "& .MuiSvgIcon-root": { fontSize: 16 } }} />
                   }
                   label="Extra large"
                 />
@@ -223,28 +223,28 @@ export default function ActionAreaCard() {
 
           <Box
             sx={{
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'space-between',
-              marginTop: '20px',
-              fontSize: '12px',
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "space-between",
+              marginTop: "20px",
+              fontSize: "12px",
             }}
           >
             <Box
               sx={{
-                backgroundColor: '#f0f0f5ff',
-                borderRadius: '30px',
-                padding: '10px',
-                display: 'flex',
-                alignItems: 'center',
-                gap: '20px',
+                backgroundColor: "#f0f0f5ff",
+                borderRadius: "30px",
+                padding: "10px",
+                display: "flex",
+                alignItems: "center",
+                gap: "20px",
               }}
             >
-              <button onClick={decrease} style={{ cursor: 'pointer' }}>
+              <button onClick={decrease} style={{ cursor: "pointer" }}>
                 -
               </button>
               <span>{number}</span>
-              <button onClick={increase} style={{ cursor: 'pointer' }}>
+              <button onClick={increase} style={{ cursor: "pointer" }}>
                 +
               </button>
             </Box>
@@ -255,17 +255,17 @@ export default function ActionAreaCard() {
                 }
               }}
               sx={{
-                display: 'flex',
-                alignItems: 'center',
-                gap: '5px',
-                backgroundColor: '#0d143bff',
-                color: 'white',
-                padding: { xs: '2px 40px', md: '8px 60px' },
-                borderRadius: '30px',
-                cursor: 'pointer',
+                display: "flex",
+                alignItems: "center",
+                gap: "5px",
+                backgroundColor: "#0d143bff",
+                color: "white",
+                padding: { xs: "2px 40px", md: "8px 60px" },
+                borderRadius: "30px",
+                cursor: "pointer",
               }}
             >
-              <ShoppingCartIcon sx={{ width: '15px' }} />
+              <ShoppingCartIcon sx={{ width: "15px" }} />
               <span>Add to cart</span>
             </Box>
           </Box>

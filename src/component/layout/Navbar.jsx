@@ -1,63 +1,63 @@
-import * as React from 'react';
-import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
-import Toolbar from '@mui/material/Toolbar';
-import IconButton from '@mui/material/IconButton';
-import Typography from '@mui/material/Typography';
-import Menu from '@mui/material/Menu';
-import MenuIcon from '@mui/icons-material/Menu';
-import Container from '@mui/material/Container';
-import Button from '@mui/material/Button';
-import MenuItem from '@mui/material/MenuItem';
-import { NavLink, useNavigate } from 'react-router-dom';
-import SearchIcon from '@mui/icons-material/Search';
-import { styled } from '@mui/material/styles';
-import InputBase from '@mui/material/InputBase';
-import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
-import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
+import * as React from "react";
+import AppBar from "@mui/material/AppBar";
+import Box from "@mui/material/Box";
+import Toolbar from "@mui/material/Toolbar";
+import IconButton from "@mui/material/IconButton";
+import Typography from "@mui/material/Typography";
+import Menu from "@mui/material/Menu";
+import MenuIcon from "@mui/icons-material/Menu";
+import Container from "@mui/material/Container";
+import Button from "@mui/material/Button";
+import MenuItem from "@mui/material/MenuItem";
+import { NavLink, useNavigate } from "react-router-dom";
+import SearchIcon from "@mui/icons-material/Search";
+import { styled } from "@mui/material/styles";
+import InputBase from "@mui/material/InputBase";
+import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+import PersonOutlineIcon from "@mui/icons-material/PersonOutline";
 
 const pages = [
-  { label: 'Home', path: '/' },
-  { label: 'Products', path: '/products' },
-  { label: 'Accessories', path: '/accessories' },
-  { label: 'About us', path: '/aboutUs' },
+  { label: "Home", path: "/" },
+  { label: "Products", path: "/products" },
+  { label: "Accessories", path: "/accessories" },
+  { label: "About us", path: "/aboutUs" },
 ];
 
-const Search = styled('div')(({ theme }) => ({
-  position: 'relative',
+const Search = styled("div")(({ theme }) => ({
+  position: "relative",
   borderRadius: theme.shape.borderRadius,
-  backgroundColor: '#F6F6F6',
-  '&:hover': {
-    backgroundColor: '#f6f6f6ff',
+  backgroundColor: "#F6F6F6",
+  "&:hover": {
+    backgroundColor: "#f6f6f6ff",
   },
-  marginLeft: '20px',
-  [theme.breakpoints.up('sm')]: {
+  marginLeft: "20px",
+  [theme.breakpoints.up("sm")]: {
     marginLeft: theme.spacing(1),
-    width: 'auto',
+    width: "auto",
   },
 }));
 
-const SearchIconWrapper = styled('div')(({ theme }) => ({
+const SearchIconWrapper = styled("div")(({ theme }) => ({
   padding: theme.spacing(0, 2),
-  height: '100%',
-  position: 'absolute',
-  pointerEvents: 'none',
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'center',
-  color: '#807D7E',
+  height: "100%",
+  position: "absolute",
+  pointerEvents: "none",
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
+  color: "#807D7E",
 }));
 const StyledInputBase = styled(InputBase)(({ theme }) => ({
-  color: '#807D7E',
-  '& .MuiInputBase-input': {
+  color: "#807D7E",
+  "& .MuiInputBase-input": {
     padding: theme.spacing(1, 1, 1, 0),
     // vertical padding + font size from searchIcon
     paddingLeft: `calc(1em + ${theme.spacing(4)})`,
-    transition: theme.transitions.create('width'),
-    [theme.breakpoints.up('sm')]: {
-      width: '18ch',
-      '&:focus': {
-        width: '24ch',
+    transition: theme.transitions.create("width"),
+    [theme.breakpoints.up("sm")]: {
+      width: "18ch",
+      "&:focus": {
+        width: "24ch",
       },
     },
   },
@@ -79,33 +79,33 @@ function ResponsiveAppBar() {
     <AppBar
       position="static"
       sx={{
-        bgcolor: '#ffff',
-        fontFamily: 'causten',
-        padding: '3px',
+        bgcolor: "#ffff",
+        fontFamily: "causten",
+        padding: "3px",
       }}
     >
       <Container>
         <Toolbar
           disableGutters
-          sx={{ display: 'flex', justifyContent: 'space-between' }}
+          sx={{ display: "flex", justifyContent: "space-between" }}
         >
           <Typography
             component="div"
             sx={{
-              display: 'flex',
-              alignItems: 'center',
-              marginLeft: { md: '20px' },
+              display: "flex",
+              alignItems: "center",
+              marginLeft: { md: "20px" },
             }}
           >
             <Box
               sx={{
-                display: 'flex',
-                alignItems: 'center',
-                marginLeft: { md: '20px' },
+                display: "flex",
+                alignItems: "center",
+                marginLeft: { md: "20px" },
               }}
             >
               <IconButton
-                sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}
+                sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}
                 size="large"
                 aria-label="account of current user"
                 aria-controls="menu-appbar"
@@ -129,22 +129,22 @@ function ResponsiveAppBar() {
               </svg>
             </Box>
 
-            <Box sx={{ display: { xs: 'flex', md: 'none' } }}>
+            <Box sx={{ display: { xs: "flex", md: "none" } }}>
               <Menu
                 id="menu-appbar"
                 anchorEl={anchorElNav}
                 anchorOrigin={{
-                  vertical: 'bottom',
-                  horizontal: 'left',
+                  vertical: "bottom",
+                  horizontal: "left",
                 }}
                 keepMounted
                 transformOrigin={{
-                  vertical: 'top',
-                  horizontal: 'left',
+                  vertical: "top",
+                  horizontal: "left",
                 }}
                 open={Boolean(anchorElNav)}
                 onClose={handleCloseNavMenu}
-                sx={{ display: { xs: 'block', md: 'none' } }}
+                sx={{ display: { xs: "block", md: "none" } }}
               >
                 {pages.map((page) => (
                   <MenuItem
@@ -155,10 +155,10 @@ function ResponsiveAppBar() {
                   >
                     <Typography
                       sx={{
-                        textAlign: 'center',
-                        fontFamily: 'causten',
+                        textAlign: "center",
+                        fontFamily: "causten",
                         fontSize: 14,
-                        color: '#807D7E',
+                        color: "#807D7E",
                       }}
                     >
                       {page.label}
@@ -170,7 +170,7 @@ function ResponsiveAppBar() {
 
             <Box
               sx={{
-                display: { xs: 'none', md: 'flex' },
+                display: { xs: "none", md: "flex" },
                 marginLeft: 4,
               }}
             >
@@ -183,10 +183,10 @@ function ResponsiveAppBar() {
                   sx={{
                     my: 2,
                     mx: 1,
-                    color: '#807D7E',
-                    display: 'block',
+                    color: "#807D7E",
+                    display: "block",
                     fontSize: 12,
-                    fontFamily: 'causten',
+                    fontFamily: "causten",
                   }}
                 >
                   {page.label}
@@ -196,36 +196,36 @@ function ResponsiveAppBar() {
           </Typography>
           <Box
             sx={{
-              display: 'flex',
-              flexDirection: 'row-reverse',
-              justifyContent: 'center',
-              alignItems: 'center',
-              gap: '10px',
+              display: "flex",
+              flexDirection: "row-reverse",
+              justifyContent: "center",
+              alignItems: "center",
+              gap: "10px",
             }}
           >
             <ShoppingCartIcon
-              onClick={() => navigate('/cart')}
+              onClick={() => navigate("/cart")}
               sx={{
-                backgroundColor: '#F6F6F6',
-                color: '#807D7E',
-                width: '25px',
-                height: '33px',
-                padding: '4px',
-                borderRadius: '4px',
-                cursor: 'pointer',
+                backgroundColor: "#F6F6F6",
+                color: "#807D7E",
+                width: "25px",
+                height: "33px",
+                padding: "4px",
+                borderRadius: "4px",
+                cursor: "pointer",
               }}
             ></ShoppingCartIcon>
             <PersonOutlineIcon
-              onClick={() => navigate('/login')}
+              onClick={() => navigate("/login")}
               sx={{
-                backgroundColor: '#F6F6F6',
-                color: '#807D7E',
-                width: '25px',
-                height: '33px',
-                padding: '4px',
-                borderRadius: '4px',
-                cursor: 'pointer',
-                display: { xs: 'none', md: 'block' },
+                backgroundColor: "#F6F6F6",
+                color: "#807D7E",
+                width: "25px",
+                height: "33px",
+                padding: "4px",
+                borderRadius: "4px",
+                cursor: "pointer",
+                display: { xs: "none", md: "block" },
               }}
             ></PersonOutlineIcon>
 
@@ -235,8 +235,8 @@ function ResponsiveAppBar() {
               </SearchIconWrapper>
               <StyledInputBase
                 placeholder="Search…"
-                inputProps={{ 'aria-label': 'search' }}
-                sx={{ fontSize: '12px' }}
+                inputProps={{ "aria-label": "search" }}
+                sx={{ fontSize: "12px" }}
               />
             </Search>
           </Box>

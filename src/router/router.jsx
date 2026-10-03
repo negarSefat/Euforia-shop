@@ -1,8 +1,8 @@
 import { createBrowserRouter } from "react-router-dom";
 import AboutUs from "../features/about-us/About";
 import Cart from "../features/cart/Cart";
-import NotFound from "../features/not-found/NotFound";
-import Layout from "../assets/component/Layout";
+import NotFound from "../component/common/not-found/NotFound";
+import Layout from "../component/layout/Layout";
 import Products from "../features/products/Products";
 import SingleProduct from "../features/single-product/SingleProduct";
 import ProtectedRoute from "./protected-route";

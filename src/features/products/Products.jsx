@@ -1,15 +1,15 @@
-import Header from '../../assets/component/Header';
-import Cards from './Cards';
+import Header from "../../component/layout/Header";
+import Cards from "./Cards";
 
 export default function Products() {
   return (
     <>
       <div
         style={{
-          fontFamily: 'causten',
-          fontWeight: 'bold',
+          fontFamily: "causten",
+          fontWeight: "bold",
           fontSize: 20,
-          textAlign: 'center',
+          textAlign: "center",
           marginTop: 50,
           marginBottom: 20,
         }}
