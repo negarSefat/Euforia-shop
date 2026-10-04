@@ -12,7 +12,7 @@ import FormLabel from "@mui/material/FormLabel";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import { useParams } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
-import api from "../Api/api";
+import api from "../../services/api";
 import CircularSize from "../../component/common/loading/Loading";
 import { Block } from "@mui/icons-material";
 import { useState } from "react";

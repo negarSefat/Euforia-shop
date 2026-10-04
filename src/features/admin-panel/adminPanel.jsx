@@ -29,7 +29,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import EditNoteOutlinedIcon from '@mui/icons-material/EditNoteOutlined';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined';
-import axios from 'axios';
+import { getProducts } from '../products/api/productService';
 
 const drawerWidth = 240;
 
@@ -40,35 +40,35 @@ export default function AdminPanel() {
   const [formData, setFormData] = useState({
     title: '',
     price: '',
-    description: '',
+    rating: '',
   });
 
   useEffect(() => {
-    axios
-      .get('https://fakestoreapi.com/products?limit=5')
-      .then((res) => setProducts(res.data));
+    getProducts().then(setProducts);
   }, []);
 
   const handleAddClick = () => {
-    setFormData({ title: '', price: '', description: '' });
+    setFormData({ title: '', price: '', rating: '' });
     setOpenDialog(true);
   };
 
-  const handleSubmit = async () => {
-    try {
-      const res = await axios.post(
-        'https://fakestoreapi.com/products',
-        formData
-      );
-      if (res.status === 200 || res.status === 201) {
-        console.log(' Product was successfully added!✅');
-        console.log('Response:', res);
-        console.log('Response status code:', res.status);
-      }
-      setProducts([...products, { ...formData, id: Date.now() }]);
-    } catch (err) {
-      console.error('❌ An Error occured: ❌', err);
-    }
+  // Writes here only touch component state — the product list is bundled from
+  // db.json, so nothing is persisted. To make the admin panel actually save,
+  // run `npm run server` and post to http://localhost:3000/products instead.
+  const handleSubmit = () => {
+    const entry = {
+      ...formData,
+      id: Date.now(),
+      price: Number(formData.price) || 0,
+      rating: { rate: Number(formData.rating) || 0, count: 0 },
+    };
+
+    const existing = products.find((p) => p.id === formData.id);
+    setProducts((prev) =>
+      existing
+        ? prev.map((p) => (p.id === formData.id ? { ...p, ...entry } : p))
+        : [...prev, entry],
+    );
     setOpenDialog(false);
   };
 
@@ -78,7 +78,12 @@ export default function AdminPanel() {
 
   const handleEdit = (id) => {
     const product = products.find((p) => p.id === id);
-    setFormData(product);
+    setFormData({
+      id: product.id,
+      title: product.title,
+      price: product.price,
+      rating: product.rating?.rate ?? '',
+    });
     setOpenDialog(true);
   };
 
@@ -207,19 +212,27 @@ export default function AdminPanel() {
               {products.map((product) => (
                 <TableRow key={product.id}>
                   <TableCell>
-                    <img
-                      style={{
-                        width: '60px',
-                        height: '70px',
-                        marginTop: 10,
-                        padding: 3,
-                      }}
-                      src={product.image}
-                    ></img>
+                    {product.image ? (
+                      <img
+                        style={{
+                          width: '60px',
+                          height: '70px',
+                          marginTop: 10,
+                          padding: 3,
+                          objectFit: 'contain',
+                        }}
+                        src={product.image}
+                        alt={product.title}
+                      />
+                    ) : (
+                      <Typography sx={{ fontSize: '12px', color: '#9aa0b5' }}>
+                        No image
+                      </Typography>
+                    )}
                   </TableCell>
                   <TableCell>{product.title}</TableCell>
                   <TableCell>${product.price} </TableCell>
-                  <TableCell>{product.rating.rate}</TableCell>
+                  <TableCell>{product.rating?.rate ?? '—'}</TableCell>
                   <TableCell>
                     <Button color="" onClick={() => handleEdit(product.id)}>
                       <EditNoteOutlinedIcon></EditNoteOutlinedIcon>

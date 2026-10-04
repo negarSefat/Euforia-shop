@@ -1,0 +1,264 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "title": "Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops",
+      "price": 109.95,
+      "description": "Your perfect pack for everyday use and walks in the forest.",
+      "category": "men's clothing",
+      "image": "products/1.jpg",
+      "rating": {
+        "rate": 3.9,
+        "count": 120
+      }
+    },
+    {
+      "id": 2,
+      "title": "Mens Casual Premium Slim Fit T-Shirts",
+      "price": 22.3,
+      "description": "Slim-fitting style, contrast raglan long sleeve, three-button henley neckline.",
+      "category": "men's clothing",
+      "image": "products/2.jpg",
+      "rating": {
+        "rate": 4.1,
+        "count": 259
+      }
+    },
+    {
+      "id": 3,
+      "title": "Mens Cotton Jacket",
+      "price": 55.99,
+      "description": "Great outerwear jackets for spring, autumn and winter.",
+      "category": "men's clothing",
+      "image": "products/3.jpg",
+      "rating": {
+        "rate": 4.7,
+        "count": 500
+      }
+    },
+    {
+      "id": 4,
+      "title": "Mens Casual Slim Fit",
+      "price": 15.99,
+      "description": "Lightweight casual shirt for everyday wear.",
+      "category": "men's clothing",
+      "image": "products/4.jpg",
+      "rating": {
+        "rate": 2.1,
+        "count": 430
+      }
+    },
+    {
+      "id": 5,
+      "title": "John Hardy Women's Legends Naga Gold & Silver Dragon Station Chain Bracelet",
+      "price": 695,
+      "description": "Naga-inspired bracelet featuring a dragon motif and handcrafted finish.",
+      "category": "jewelery",
+      "image": "products/5.jpg",
+      "rating": {
+        "rate": 4.6,
+        "count": 400
+      }
+    },
+    {
+      "id": 6,
+      "title": "Solid Gold Petite Micropave",
+      "price": 168,
+      "description": "Delicate everyday jewelry with a classic design.",
+      "category": "jewelery",
+      "image": "products/6.jpg",
+      "rating": {
+        "rate": 3.9,
+        "count": 70
+      }
+    },
+    {
+      "id": 7,
+      "title": "White Gold Plated Princess",
+      "price": 9.99,
+      "description": "Classic white-gold-plated jewelry with a simple princess-cut design.",
+      "category": "jewelery",
+      "image": "products/7.jpg",
+      "rating": {
+        "rate": 3,
+        "count": 400
+      }
+    },
+    {
+      "id": 8,
+      "title": "Pierced Owl Rose Gold Plated Stainless Steel Double",
+      "price": 10.99,
+      "description": "Rose-gold-plated stainless steel jewelry with a lightweight modern design.",
+      "category": "jewelery",
+      "image": "products/8.jpg",
+      "rating": {
+        "rate": 1.9,
+        "count": 100
+      }
+    },
+    {
+      "id": 9,
+      "title": "WD 2TB Elements Portable External Hard Drive",
+      "price": 64,
+      "description": "USB 3.0 portable external hard drive with a compact design and high-capacity storage.",
+      "category": "electronics",
+      "image": "products/9.jpg",
+      "rating": {
+        "rate": 3.3,
+        "count": 203
+      }
+    },
+    {
+      "id": 10,
+      "title": "SanDisk SSD PLUS 1TB Internal SSD",
+      "price": 109,
+      "description": "Fast and reliable solid-state storage for everyday computing.",
+      "category": "electronics",
+      "image": "products/10.jpg",
+      "rating": {
+        "rate": 2.9,
+        "count": 470
+      }
+    },
+    {
+      "id": 11,
+      "title": "Silicon Power 256GB SSD 3D NAND",
+      "price": 109,
+      "description": "High-speed internal solid-state drive designed for desktop and laptop upgrades.",
+      "category": "electronics",
+      "image": "products/11.jpg",
+      "rating": {
+        "rate": 4.8,
+        "count": 319
+      }
+    },
+    {
+      "id": 12,
+      "title": "WD 4TB Gaming Drive Works with PlayStation 4",
+      "price": 114,
+      "description": "Portable gaming storage with large capacity for PlayStation systems.",
+      "category": "electronics",
+      "image": "products/12.jpg",
+      "rating": {
+        "rate": 4.8,
+        "count": 400
+      }
+    },
+    {
+      "id": 13,
+      "title": "Acer SB220Q bi 21.5 Inches Full HD Monitor",
+      "price": 599,
+      "description": "Slim-bezel Full HD monitor with a compact footprint and crisp image quality.",
+      "category": "electronics",
+      "image": "products/13.jpg",
+      "rating": {
+        "rate": 2.9,
+        "count": 250
+      }
+    },
+    {
+      "id": 14,
+      "title": "Samsung 49-Inch CHG90 144Hz Curved Gaming Monitor",
+      "price": 999.99,
+      "description": "Ultra-wide curved gaming monitor designed for immersive gaming and multitasking.",
+      "category": "electronics",
+      "image": "products/14.jpg",
+      "rating": {
+        "rate": 2.2,
+        "count": 140
+      }
+    },
+    {
+      "id": 15,
+      "title": "BIYLACLESEN Women's 3-in-1 Snowboard Jacket",
+      "price": 56.99,
+      "description": "Warm and versatile jacket suitable for cold weather and outdoor activities.",
+      "category": "women's clothing",
+      "image": "products/15.jpg",
+      "rating": {
+        "rate": 2.6,
+        "count": 235
+      }
+    },
+    {
+      "id": 16,
+      "title": "Lock and Love Women's Removable Hooded Faux Leather Jacket",
+      "price": 29.95,
+      "description": "Faux leather jacket with removable hood and casual everyday style.",
+      "category": "women's clothing",
+      "image": "products/16.jpg",
+      "rating": {
+        "rate": 2.9,
+        "count": 340
+      }
+    },
+    {
+      "id": 17,
+      "title": "Rain Jacket Women Windbreaker Striped Climbing Raincoats",
+      "price": 39.99,
+      "description": "Lightweight waterproof windbreaker for outdoor activities and rainy days.",
+      "category": "women's clothing",
+      "image": "products/17.jpg",
+      "rating": {
+        "rate": 3.8,
+        "count": 679
+      }
+    },
+    {
+      "id": 18,
+      "title": "MBJ Women's Solid Short Sleeve Boat Neck V",
+      "price": 9.85,
+      "description": "Soft short-sleeve casual top with a comfortable boat neckline.",
+      "category": "women's clothing",
+      "image": "products/18.jpg",
+      "rating": {
+        "rate": 4.7,
+        "count": 130
+      }
+    },
+    {
+      "id": 19,
+      "title": "Opna Women's Short Sleeve Moisture",
+      "price": 7.95,
+      "description": "Lightweight moisture-wicking sports top designed for active use.",
+      "category": "women's clothing",
+      "image": "products/19.jpg",
+      "rating": {
+        "rate": 4.5,
+        "count": 146
+      }
+    },
+    {
+      "id": 20,
+      "title": "DANVOUY Womens T Shirt Casual Cotton Short",
+      "price": 12.99,
+      "description": "Casual cotton short-sleeve T-shirt with a comfortable everyday fit.",
+      "category": "women's clothing",
+      "image": "products/20.jpg",
+      "rating": {
+        "rate": 3.6,
+        "count": 145
+      }
+    }
+  ],
+  "categories": [
+    {
+      "id": 1,
+      "name": "electronics"
+    },
+    {
+      "id": 2,
+      "name": "jewelery"
+    },
+    {
+      "id": 3,
+      "name": "men's clothing"
+    },
+    {
+      "id": 4,
+      "name": "women's clothing"
+    }
+  ],
+  "users": [],
+  "carts": []
+}

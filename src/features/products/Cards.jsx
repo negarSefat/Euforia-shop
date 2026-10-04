@@ -4,22 +4,24 @@ import Grid from "@mui/material/Grid";
 import ErrorOutlineIcon from "@mui/icons-material/ErrorOutline";
 import Button from "@mui/material/Button";
 import { QueryClientProvider, useQuery } from "@tanstack/react-query";
-import api from "../Api/api";
+// import api from "../../services/api";
+import { getProducts } from "./api/productService";
 
 export default function Cards() {
   // --------React Query--------
-  async function queryFn() {
-    try {
-      return await api.get("products");
-    } catch (err) {
-      throw new Error(err.message);
-    }
-  }
+  // async function queryFn() {
+  //   try {
+  //     return await api.get("products");
+  //   } catch (err) {
+  //     throw new Error(err.message);
+  //   }
+  // }
 
   const { data, isLoading, isError, error } = useQuery({
     queryKey: ["products"],
-    queryFn,
+    queryFn: getProducts,
   });
+
   if (isLoading) return <CircularSize />;
   if (isError || !data || !Array.isArray(data))
     return (
@@ -46,7 +48,7 @@ export default function Cards() {
           />
           <h1>Something went wrong...</h1>
         </div>
-        <h3 style={{ color: "rgba(187, 34, 34, 1)" }}>{error}</h3>
+        <h3 style={{ color: "rgba(187, 34, 34, 1)" }}>{error?.message}</h3>
       </div>
     );
 
