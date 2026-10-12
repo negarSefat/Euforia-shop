@@ -4,22 +4,17 @@ import Grid from "@mui/material/Grid";
 import ErrorOutlineIcon from "@mui/icons-material/ErrorOutline";
 import Button from "@mui/material/Button";
 import { QueryClientProvider, useQuery } from "@tanstack/react-query";
-// import api from "../../services/api";
+
 import { getProducts } from "./api/productService";
+import { useSearchParams } from "react-router-dom";
 
 export default function Cards() {
-  // --------React Query--------
-  // async function queryFn() {
-  //   try {
-  //     return await api.get("products");
-  //   } catch (err) {
-  //     throw new Error(err.message);
-  //   }
-  // }
+  const [searchParams] = useSearchParams();
+  const searchParam = searchParams.get("search");
 
   const { data, isLoading, isError, error } = useQuery({
-    queryKey: ["products"],
-    queryFn: getProducts,
+    queryKey: ["products", searchParam],
+    queryFn: ({ queryKey }) => getProducts(queryKey[1]), //input=>searchparam
   });
 
   if (isLoading) return <CircularSize />;

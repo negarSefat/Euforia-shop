@@ -1,5 +1,6 @@
 import Header from "../../component/layout/Header";
 import Cards from "./Cards";
+import ProductSearch from "./productSearch";
 
 export default function Products() {
   return (
@@ -15,6 +16,10 @@ export default function Products() {
         }}
       >
         Our Collection
+      </div>
+
+      <div className="flex justify-center mb-6">
+        <ProductSearch />
       </div>
       <Cards />
     </>

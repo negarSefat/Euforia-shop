@@ -37,16 +37,6 @@ const Search = styled("div")(({ theme }) => ({
   },
 }));
 
-const SearchIconWrapper = styled("div")(({ theme }) => ({
-  padding: theme.spacing(0, 2),
-  height: "100%",
-  position: "absolute",
-  pointerEvents: "none",
-  display: "flex",
-  alignItems: "center",
-  justifyContent: "center",
-  color: "#807D7E",
-}));
 const StyledInputBase = styled(InputBase)(({ theme }) => ({
   color: "#807D7E",
   "& .MuiInputBase-input": {
@@ -228,17 +218,6 @@ function ResponsiveAppBar() {
                 display: { xs: "none", md: "block" },
               }}
             ></PersonOutlineIcon>
-
-            <Search>
-              <SearchIconWrapper>
-                <SearchIcon />
-              </SearchIconWrapper>
-              <StyledInputBase
-                placeholder="Search…"
-                inputProps={{ "aria-label": "search" }}
-                sx={{ fontSize: "12px" }}
-              />
-            </Search>
           </Box>
         </Toolbar>
       </Container>
