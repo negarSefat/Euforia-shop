@@ -1,14 +1,16 @@
-import { useParams } from "react-router-dom";
 import api from "../../../services/api";
 
-export function getProducts(searchParam) {
+export function getProducts(searchParam, page = 1) {
+  const params = {
+    _page: page,
+    _per_page: 8,
+  };
   if (searchParam) {
-    return api.get(`/products`, {
-      params: {
-        "title:contains": searchParam, // json-server v1 syntax: products whose title contains the param
-      },
-    });
-  } else return api.get(`/products`);
+    params["title:contains"] = searchParam;
+  }
+  return api.get(`/products`, {
+    params,
+  });
 }
 
 export function getProductById(id) {
