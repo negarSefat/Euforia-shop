@@ -1,3 +1,5 @@
+@import "tailwindcss";
+
 @font-face {
   font-family: "causten";
   src: url("/font/Causten\ Medium.ttf") format(trueType);
@@ -9,15 +11,9 @@
 }
 
 * {
-  border: none;
-  padding: 0;
   box-sizing: border-box;
 }
 
-/* Keep this on html only, never on `*`:
-   `overflow-x: hidden` forces the browser to compute `overflow-y` as `auto`,
-   so every element that overflows by even 1px grows a scrollbar with up/down
-   arrow buttons next to its content. */
 html {
   overflow-x: hidden;
 }
