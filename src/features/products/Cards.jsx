@@ -12,18 +12,21 @@ import NavigateNextIcon from "@mui/icons-material/NavigateNext";
 import NavigateBeforeIcon from "@mui/icons-material/NavigateBefore";
 
 export default function Cards() {
-  const [page, setPage] = useState(1);
-  const [searchParams] = useSearchParams();
+  const [searchParams, setSearchParams] = useSearchParams();
   const searchParam = searchParams.get("search");
+  const pageParam = Number(searchParams.get("page")) || 1;
+
+  const changePage = (newPage) => {
+    setSearchParams((params) => {
+      params.set("page", String(newPage));
+      return params;
+    });
+  };
 
   const { data, isLoading, isError, error } = useQuery({
-    queryKey: ["products", searchParam, page],
+    queryKey: ["products", searchParam, pageParam],
     queryFn: ({ queryKey }) => getProducts(queryKey[1], queryKey[2]),
   });
-
-  useEffect(() => {
-    setPage(1);
-  }, [searchParam]);
 
   if (isLoading) return <CircularSize />;
   if (isError || !data || !Array.isArray(data.data))
@@ -35,7 +38,7 @@ export default function Cards() {
           flexDirection: "column",
         }}
       >
-        <img style={{ width: "180px" }} src="error3.png" alt=" error Icon" />
+        <img style={{ width: "180px" }} src="error3.png" alt="error Icon" />
         <div
           style={{
             display: "flex",
@@ -96,21 +99,26 @@ export default function Cards() {
         <IconButton
           aria-label="previous"
           size="medium"
-          onClick={() => setPage((prev) => prev - 1)}
+          onClick={() => changePage(pageParam - 1)}
           disabled={data.prev === null}
         >
           <NavigateBeforeIcon />
         </IconButton>
 
-        <div className="bg-gray-100 p-2 py-1 rounded-4xl">
-          <span className="font-semibold">{page} </span>
-          <span> / {data.pages}</span>
+        <div>
+          <span className="font-semibold bg-gray-100 p-2 py-1 rounded-sm mx-2">
+            {pageParam}
+          </span>
+          /
+          <span className="bg-gray-100 p-2 py-1 rounded-sm mx-2">
+            {data.pages}
+          </span>
         </div>
 
         <IconButton
           aria-label="next"
           size="medium"
-          onClick={() => setPage((prev) => prev + 1)}
+          onClick={() => changePage(pageParam + 1)}
           disabled={data.next === null}
         >
           <NavigateNextIcon />

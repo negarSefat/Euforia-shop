@@ -9,8 +9,11 @@ export default function ProductSearch() {
   const [searchParam, setSearchParam] = useSearchParams();
   const [searchInput, setSearchInput] = useState("");
   const debouncedSearch = useDebounce(searchInput, 500);
-
   useEffect(() => {
+    const currentSearch = searchParam.get("search") ?? "";
+
+    if (currentSearch === debouncedSearch) return;
+
     setSearchParam((params) => {
       if (debouncedSearch) {
         params.set("search", debouncedSearch);
@@ -18,10 +21,14 @@ export default function ProductSearch() {
         params.delete("search");
       }
 
+      params.delete("page");
+
       return params;
     });
-  }, [debouncedSearch, setSearchParam]);
+  }, [debouncedSearch, searchParam, setSearchParam]);
 
+
+  
   useEffect(() => {
     const search = searchParam.get("search");
     setSearchInput(search ?? "");
